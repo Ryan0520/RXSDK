@@ -51,7 +51,7 @@ typedef struct {
 @interface KxMenuView : UIView
 
 @property (atomic, assign) OptionalConfiguration kxMenuViewOptions;
-- (void)dismissMenu:(BOOL) noAnimated;
+
 @end
 
 @interface KxMenu : NSObject
