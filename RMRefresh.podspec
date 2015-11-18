@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-s.name         = "RMRefresh"
-s.version      = "1.0.2"
+s.name         = "RXSDK"
+s.version      = "1.0.3"
 s.summary      = "The easiest way to use pull-to-refresh"
 s.homepage     = "https://github.com/Ryan0520/RMRefresh"
 s.license      = "MIT"

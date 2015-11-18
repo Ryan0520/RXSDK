@@ -32,7 +32,6 @@
 		94FC2E711BFC27F0002E97D6 /* WebViewJsBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 94FC2E451BFC27EF002E97D6 /* WebViewJsBridge.js */; };
 		94FC2E721BFC27F0002E97D6 /* WebViewJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E461BFC27EF002E97D6 /* WebViewJsBridge.m */; };
 		94FC2E731BFC27F0002E97D6 /* RXConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E491BFC27EF002E97D6 /* RXConst.m */; };
-		94FC2E741BFC27F0002E97D6 /* RXApiEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E4D1BFC27F0002E97D6 /* RXApiEngine.m */; };
 		94FC2E751BFC27F0002E97D6 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E511BFC27F0002E97D6 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		94FC2E761BFC27F0002E97D6 /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E541BFC27F0002E97D6 /* MBProgressHUD+Extension.m */; };
 		94FC2E771BFC27F0002E97D6 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 94FC2E551BFC27F0002E97D6 /* MBProgressHUD.bundle */; };
@@ -118,8 +117,6 @@
 		94FC2E481BFC27EF002E97D6 /* RXConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXConst.h; sourceTree = "<group>"; };
 		94FC2E491BFC27EF002E97D6 /* RXConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXConst.m; sourceTree = "<group>"; };
 		94FC2E4A1BFC27F0002E97D6 /* RXMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMarco.h; sourceTree = "<group>"; };
-		94FC2E4C1BFC27F0002E97D6 /* RXApiEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXApiEngine.h; sourceTree = "<group>"; };
-		94FC2E4D1BFC27F0002E97D6 /* RXApiEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXApiEngine.m; sourceTree = "<group>"; };
 		94FC2E501BFC27F0002E97D6 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
 		94FC2E511BFC27F0002E97D6 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		94FC2E531BFC27F0002E97D6 /* MBProgressHUD+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+Extension.h"; sourceTree = "<group>"; };
@@ -262,7 +259,6 @@
 				94FC2E231BFC27EF002E97D6 /* category */,
 				94FC2E381BFC27EF002E97D6 /* component */,
 				94FC2E471BFC27EF002E97D6 /* const */,
-				94FC2E4B1BFC27F0002E97D6 /* network */,
 				94FC2E4E1BFC27F0002E97D6 /* utility */,
 				94FC2E581BFC27F0002E97D6 /* widget */,
 			);
@@ -367,15 +363,6 @@
 				94FC2E4A1BFC27F0002E97D6 /* RXMarco.h */,
 			);
 			path = const;
-			sourceTree = "<group>";
-		};
-		94FC2E4B1BFC27F0002E97D6 /* network */ = {
-			isa = PBXGroup;
-			children = (
-				94FC2E4C1BFC27F0002E97D6 /* RXApiEngine.h */,
-				94FC2E4D1BFC27F0002E97D6 /* RXApiEngine.m */,
-			);
-			path = network;
 			sourceTree = "<group>";
 		};
 		94FC2E4E1BFC27F0002E97D6 /* utility */ = {
@@ -641,7 +628,6 @@
 				94FC2E721BFC27F0002E97D6 /* WebViewJsBridge.m in Sources */,
 				94FC2E681BFC27F0002E97D6 /* UIBarButtonItem+Extension.m in Sources */,
 				94FC2E671BFC27F0002E97D6 /* NSMutableDictionary+Extension.m in Sources */,
-				94FC2E741BFC27F0002E97D6 /* RXApiEngine.m in Sources */,
 				94FC2E6D1BFC27F0002E97D6 /* RXExampleHandler.m in Sources */,
 				94FC2E661BFC27F0002E97D6 /* NSDate+Extension.m in Sources */,
 				94FC2E6B1BFC27F0002E97D6 /* UIScrollView+EmptyDataSet.m in Sources */,
