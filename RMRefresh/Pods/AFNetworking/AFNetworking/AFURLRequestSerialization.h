@@ -20,9 +20,7 @@
 // THE SOFTWARE.
 
 #import <Foundation/Foundation.h>
-#import <TargetConditionals.h>
-
-#if TARGET_OS_IOS || TARGET_OS_TV
+#if TARGET_OS_IOS
 #import <UIKit/UIKit.h>
 #elif TARGET_OS_WATCH
 #import <WatchKit/WatchKit.h>
@@ -48,8 +46,11 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(nullable id)parameters
-                                        error:(NSError * _Nullable __autoreleasing *)error NS_SWIFT_NOTHROW;
-
+                                        error:(NSError * __nullable __autoreleasing *)error
+#ifdef NS_SWIFT_NOTHROW
+NS_SWIFT_NOTHROW
+#endif
+;
 @end
 
 #pragma mark -
@@ -225,7 +226,7 @@ forHTTPHeaderField:(NSString *)field;
 - (NSMutableURLRequest *)requestWithMethod:(NSString *)method
                                  URLString:(NSString *)URLString
                                 parameters:(nullable id)parameters
-                                     error:(NSError * _Nullable __autoreleasing *)error;
+                                     error:(NSError * __nullable __autoreleasing *)error;
 
 /**
  @deprecated This method has been deprecated. Use -multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:error: instead.
@@ -252,7 +253,7 @@ forHTTPHeaderField:(NSString *)field;
                                               URLString:(NSString *)URLString
                                              parameters:(nullable NSDictionary *)parameters
                               constructingBodyWithBlock:(nullable void (^)(id <AFMultipartFormData> formData))block
-                                                  error:(NSError * _Nullable __autoreleasing *)error;
+                                                  error:(NSError * __nullable __autoreleasing *)error;
 
 /**
  Creates an `NSMutableURLRequest` by removing the `HTTPBodyStream` from a request, and asynchronously writing its contents into the specified file, invoking the completion handler when finished.
@@ -267,7 +268,7 @@ forHTTPHeaderField:(NSString *)field;
  */
 - (NSMutableURLRequest *)requestWithMultipartFormRequest:(NSURLRequest *)request
                              writingStreamContentsToFile:(NSURL *)fileURL
-                                       completionHandler:(nullable void (^)(NSError * _Nullable error))handler;
+                                       completionHandler:(nullable void (^)(NSError * __nullable error))handler;
 
 @end
 
@@ -291,7 +292,7 @@ forHTTPHeaderField:(NSString *)field;
  */
 - (BOOL)appendPartWithFileURL:(NSURL *)fileURL
                          name:(NSString *)name
-                        error:(NSError * _Nullable __autoreleasing *)error;
+                        error:(NSError * __nullable __autoreleasing *)error;
 
 /**
  Appends the HTTP header `Content-Disposition: file; filename=#{filename}; name=#{name}"` and `Content-Type: #{mimeType}`, followed by the encoded file data and the multipart form boundary.
@@ -308,7 +309,7 @@ forHTTPHeaderField:(NSString *)field;
                          name:(NSString *)name
                      fileName:(NSString *)fileName
                      mimeType:(NSString *)mimeType
-                        error:(NSError * _Nullable __autoreleasing *)error;
+                        error:(NSError * __nullable __autoreleasing *)error;
 
 /**
  Appends the HTTP header `Content-Disposition: file; filename=#{filename}; name=#{name}"` and `Content-Type: #{mimeType}`, followed by the data from the input stream and the multipart form boundary.
