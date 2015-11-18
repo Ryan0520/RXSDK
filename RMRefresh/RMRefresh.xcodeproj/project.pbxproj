@@ -40,6 +40,8 @@
 		94FC2E791BFC27F0002E97D6 /* RXCoreLaunchLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E5B1BFC27F0002E97D6 /* RXCoreLaunchLite.m */; };
 		94FC2E7A1BFC27F0002E97D6 /* NirKxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E5E1BFC27F0002E97D6 /* NirKxMenu.m */; };
 		94FC2E7B1BFC27F0002E97D6 /* RXKxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E601BFC27F0002E97D6 /* RXKxMenu.m */; };
+		94FC30011BFC4078002E97D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2FFE1BFC4078002E97D6 /* AppDelegate.m */; };
+		94FC30021BFC4078002E97D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30001BFC4078002E97D6 /* ViewController.m */; };
 		C610071147EBC5E2895B5D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2805CC052CC9AF00A1D347C8 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -131,6 +133,10 @@
 		94FC2E5E1BFC27F0002E97D6 /* NirKxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NirKxMenu.m; sourceTree = "<group>"; };
 		94FC2E5F1BFC27F0002E97D6 /* RXKxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXKxMenu.h; sourceTree = "<group>"; };
 		94FC2E601BFC27F0002E97D6 /* RXKxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXKxMenu.m; sourceTree = "<group>"; };
+		94FC2FFD1BFC4078002E97D6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		94FC2FFE1BFC4078002E97D6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		94FC2FFF1BFC4078002E97D6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		94FC30001BFC4078002E97D6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,6 +246,10 @@
 		948980D51BC3E41C007CFEAF /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				94FC2FFD1BFC4078002E97D6 /* AppDelegate.h */,
+				94FC2FFE1BFC4078002E97D6 /* AppDelegate.m */,
+				94FC2FFF1BFC4078002E97D6 /* ViewController.h */,
+				94FC30001BFC4078002E97D6 /* ViewController.m */,
 				94FC2E1A1BFC27EF002E97D6 /* RXSDK */,
 			);
 			path = Classes;
@@ -612,6 +622,7 @@
 			files = (
 				94FC2E6E1BFC27F0002E97D6 /* RXUriActionEngine.m in Sources */,
 				94FC2E6C1BFC27F0002E97D6 /* UIView+Extension.m in Sources */,
+				94FC30011BFC4078002E97D6 /* AppDelegate.m in Sources */,
 				94FC2E7B1BFC27F0002E97D6 /* RXKxMenu.m in Sources */,
 				94FC2E641BFC27F0002E97D6 /* NSBundle+Extension.m in Sources */,
 				94FC2E621BFC27F0002E97D6 /* HyTransitions.m in Sources */,
@@ -623,6 +634,7 @@
 				94FC2E611BFC27F0002E97D6 /* HyLoglnButton.m in Sources */,
 				94FC2E791BFC27F0002E97D6 /* RXCoreLaunchLite.m in Sources */,
 				94FC2E7A1BFC27F0002E97D6 /* NirKxMenu.m in Sources */,
+				94FC30021BFC4078002E97D6 /* ViewController.m in Sources */,
 				94FC2E751BFC27F0002E97D6 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				94FC2E6A1BFC27F0002E97D6 /* UIImage+Extension.m in Sources */,
 				94FC2E691BFC27F0002E97D6 /* UIColor+Extension.m in Sources */,
