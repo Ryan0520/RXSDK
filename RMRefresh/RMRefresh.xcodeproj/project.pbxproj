@@ -13,11 +13,6 @@
 		948980B11BC3E331007CFEAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948980AF1BC3E331007CFEAF /* LaunchScreen.storyboard */; };
 		948980BC1BC3E331007CFEAF /* RMRefreshTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948980BB1BC3E331007CFEAF /* RMRefreshTests.m */; };
 		948980C71BC3E331007CFEAF /* RMRefreshUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 948980C61BC3E331007CFEAF /* RMRefreshUITests.m */; };
-		948980DB1BC3E41C007CFEAF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 948980D71BC3E41C007CFEAF /* AppDelegate.m */; };
-		948980DC1BC3E41C007CFEAF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 948980DA1BC3E41C007CFEAF /* ViewController.m */; };
-		948980DF1BC3E43D007CFEAF /* RMRefreshComponet.m in Sources */ = {isa = PBXBuildFile; fileRef = 948980DE1BC3E43D007CFEAF /* RMRefreshComponet.m */; };
-		948980E21BC3E45E007CFEAF /* RMRefreshHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 948980E11BC3E45E007CFEAF /* RMRefreshHeader.m */; };
-		948980E51BC3E46A007CFEAF /* RMRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 948980E41BC3E46A007CFEAF /* RMRefreshFooter.m */; };
 		94FC2E611BFC27F0002E97D6 /* HyLoglnButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E1E1BFC27EF002E97D6 /* HyLoglnButton.m */; };
 		94FC2E621BFC27F0002E97D6 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E201BFC27EF002E97D6 /* HyTransitions.m */; };
 		94FC2E631BFC27F0002E97D6 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2E221BFC27EF002E97D6 /* SpinerLayer.m */; };
@@ -81,16 +76,6 @@
 		948980C21BC3E331007CFEAF /* RMRefreshUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RMRefreshUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		948980C61BC3E331007CFEAF /* RMRefreshUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RMRefreshUITests.m; sourceTree = "<group>"; };
 		948980C81BC3E331007CFEAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		948980D61BC3E41C007CFEAF /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		948980D71BC3E41C007CFEAF /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		948980D91BC3E41C007CFEAF /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		948980DA1BC3E41C007CFEAF /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		948980DD1BC3E43D007CFEAF /* RMRefreshComponet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRefreshComponet.h; sourceTree = "<group>"; };
-		948980DE1BC3E43D007CFEAF /* RMRefreshComponet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRefreshComponet.m; sourceTree = "<group>"; };
-		948980E01BC3E45E007CFEAF /* RMRefreshHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRefreshHeader.h; sourceTree = "<group>"; };
-		948980E11BC3E45E007CFEAF /* RMRefreshHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRefreshHeader.m; sourceTree = "<group>"; };
-		948980E31BC3E46A007CFEAF /* RMRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RMRefreshFooter.h; sourceTree = "<group>"; };
-		948980E41BC3E46A007CFEAF /* RMRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RMRefreshFooter.m; sourceTree = "<group>"; };
 		94FC2E1D1BFC27EF002E97D6 /* HyLoglnButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyLoglnButton.h; sourceTree = "<group>"; };
 		94FC2E1E1BFC27EF002E97D6 /* HyLoglnButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyLoglnButton.m; sourceTree = "<group>"; };
 		94FC2E1F1BFC27EF002E97D6 /* HyTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyTransitions.h; sourceTree = "<group>"; };
@@ -256,26 +241,8 @@
 			isa = PBXGroup;
 			children = (
 				94FC2E1A1BFC27EF002E97D6 /* RXSDK */,
-				948980D81BC3E41C007CFEAF /* refreshDemo */,
-				948980D61BC3E41C007CFEAF /* AppDelegate.h */,
-				948980D71BC3E41C007CFEAF /* AppDelegate.m */,
-				948980D91BC3E41C007CFEAF /* ViewController.h */,
-				948980DA1BC3E41C007CFEAF /* ViewController.m */,
 			);
 			path = Classes;
-			sourceTree = "<group>";
-		};
-		948980D81BC3E41C007CFEAF /* refreshDemo */ = {
-			isa = PBXGroup;
-			children = (
-				948980DD1BC3E43D007CFEAF /* RMRefreshComponet.h */,
-				948980DE1BC3E43D007CFEAF /* RMRefreshComponet.m */,
-				948980E01BC3E45E007CFEAF /* RMRefreshHeader.h */,
-				948980E11BC3E45E007CFEAF /* RMRefreshHeader.m */,
-				948980E31BC3E46A007CFEAF /* RMRefreshFooter.h */,
-				948980E41BC3E46A007CFEAF /* RMRefreshFooter.m */,
-			);
-			path = refreshDemo;
 			sourceTree = "<group>";
 		};
 		94FC2E1A1BFC27EF002E97D6 /* RXSDK */ = {
@@ -647,12 +614,10 @@
 				94FC2E6C1BFC27F0002E97D6 /* UIView+Extension.m in Sources */,
 				94FC2E7B1BFC27F0002E97D6 /* RXKxMenu.m in Sources */,
 				94FC2E641BFC27F0002E97D6 /* NSBundle+Extension.m in Sources */,
-				948980DC1BC3E41C007CFEAF /* ViewController.m in Sources */,
 				94FC2E621BFC27F0002E97D6 /* HyTransitions.m in Sources */,
 				94FC2E731BFC27F0002E97D6 /* RXConst.m in Sources */,
 				94FC2E631BFC27F0002E97D6 /* SpinerLayer.m in Sources */,
 				94FC2E701BFC27F0002E97D6 /* EPJsBridge.m in Sources */,
-				948980DF1BC3E43D007CFEAF /* RMRefreshComponet.m in Sources */,
 				94FC2E651BFC27F0002E97D6 /* NSData+SDK_Encrypt.m in Sources */,
 				94FC2E6F1BFC27F0002E97D6 /* EPChildAppVC.m in Sources */,
 				94FC2E611BFC27F0002E97D6 /* HyLoglnButton.m in Sources */,
@@ -662,16 +627,13 @@
 				94FC2E6A1BFC27F0002E97D6 /* UIImage+Extension.m in Sources */,
 				94FC2E691BFC27F0002E97D6 /* UIColor+Extension.m in Sources */,
 				94FC2E721BFC27F0002E97D6 /* WebViewJsBridge.m in Sources */,
-				948980E21BC3E45E007CFEAF /* RMRefreshHeader.m in Sources */,
 				94FC2E681BFC27F0002E97D6 /* UIBarButtonItem+Extension.m in Sources */,
 				94FC2E671BFC27F0002E97D6 /* NSMutableDictionary+Extension.m in Sources */,
 				94FC2E741BFC27F0002E97D6 /* RXApiEngine.m in Sources */,
 				94FC2E6D1BFC27F0002E97D6 /* RXExampleHandler.m in Sources */,
 				94FC2E661BFC27F0002E97D6 /* NSDate+Extension.m in Sources */,
 				94FC2E6B1BFC27F0002E97D6 /* UIScrollView+EmptyDataSet.m in Sources */,
-				948980DB1BC3E41C007CFEAF /* AppDelegate.m in Sources */,
 				948980A31BC3E331007CFEAF /* main.m in Sources */,
-				948980E51BC3E46A007CFEAF /* RMRefreshFooter.m in Sources */,
 				94FC2E761BFC27F0002E97D6 /* MBProgressHUD+Extension.m in Sources */,
 				94FC2E781BFC27F0002E97D6 /* MBProgressHUD.m in Sources */,
 			);
