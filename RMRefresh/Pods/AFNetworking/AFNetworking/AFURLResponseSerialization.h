@@ -42,11 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (nullable id)responseObjectForResponse:(nullable NSURLResponse *)response
                            data:(nullable NSData *)data
-                          error:(NSError * __nullable __autoreleasing *)error
-#ifdef NS_SWIFT_NOTHROW
-NS_SWIFT_NOTHROW
-#endif
-;
+                          error:(NSError * _Nullable __autoreleasing *)error NS_SWIFT_NOTHROW;
 
 @end
 
@@ -100,7 +96,7 @@ NS_SWIFT_NOTHROW
  */
 - (BOOL)validateResponse:(nullable NSHTTPURLResponse *)response
                     data:(nullable NSData *)data
-                   error:(NSError * __nullable __autoreleasing *)error;
+                   error:(NSError * _Nullable __autoreleasing *)error;
 
 @end
 
@@ -239,7 +235,7 @@ NS_SWIFT_NOTHROW
  */
 @interface AFImageResponseSerializer : AFHTTPResponseSerializer
 
-#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+#if TARGET_OS_IOS || TARGET_OS_TV || TARGET_OS_WATCH
 /**
  The scale factor used when interpreting the image data to construct `responseImage`. Specifying a scale factor of 1.0 results in an image whose size matches the pixel-based dimensions of the image. Applying a different scale factor changes the size of the image as reported by the size property. This is set to the value of scale of the main screen by default, which automatically scales images for retina displays, for instance.
  */

@@ -68,16 +68,4 @@
 - (CGPoint)origin {
     return self.frame.origin;
 }
-
-- (void)setCenter:(CGPoint)center{
-    CGPoint point = self.center;
-    point.x = center.x;
-    point.y = center.y;
-    self.center = center;
-}
-
-- (CGPoint)center{
-    return self.center;
-}
-
 @end

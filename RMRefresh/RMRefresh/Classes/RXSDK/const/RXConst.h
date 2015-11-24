@@ -10,3 +10,9 @@
 
 // ExmapleConst
 extern NSString *const RXExmapleConst;
+
+// api error domain
+extern NSString *const RXApiServiceErrorDomain;
+
+// api error message key
+extern NSString *const RXApiServiceErrorMessage;

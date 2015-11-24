@@ -9,3 +9,9 @@
 #import "RXConst.h"
 
 NSString *const RXExmapleConst = @"RXExmapleConst";
+
+// api error domain
+NSString *const RXApiServiceErrorDomain = @"Api.Service.ErrorDomain";
+
+// api error message key
+NSString *const RXApiServiceErrorMessage = @"Api.Service.ErrorMessage";
