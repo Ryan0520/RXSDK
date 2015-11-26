@@ -11,8 +11,6 @@
 		947C84B71C041086003C2DF2 /* RXApiServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84B61C041086003C2DF2 /* RXApiServiceResponse.m */; };
 		947C84BA1C043239003C2DF2 /* RXApiServiceEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84B91C043239003C2DF2 /* RXApiServiceEngine.m */; };
 		947C84BD1C043379003C2DF2 /* RXBaseCompoent.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84BC1C043379003C2DF2 /* RXBaseCompoent.m */; };
-		947C84C21C044BCC003C2DF2 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84C01C044BCC003C2DF2 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		947C84C31C044BCC003C2DF2 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 947C84C11C044BCC003C2DF2 /* README.md */; };
 		947C84C91C044DC5003C2DF2 /* RXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84C81C044DC5003C2DF2 /* RXRuntime.m */; };
 		948980A31BC3E331007CFEAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 948980A21BC3E331007CFEAF /* main.m */; };
 		948980AC1BC3E331007CFEAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 948980AA1BC3E331007CFEAF /* Main.storyboard */; };
@@ -87,9 +85,6 @@
 		947C84B91C043239003C2DF2 /* RXApiServiceEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXApiServiceEngine.m; sourceTree = "<group>"; };
 		947C84BB1C043379003C2DF2 /* RXBaseCompoent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXBaseCompoent.h; sourceTree = "<group>"; };
 		947C84BC1C043379003C2DF2 /* RXBaseCompoent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXBaseCompoent.m; sourceTree = "<group>"; };
-		947C84BF1C044BCC003C2DF2 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
-		947C84C01C044BCC003C2DF2 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
-		947C84C11C044BCC003C2DF2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		947C84C71C044DC5003C2DF2 /* RXRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXRuntime.h; sourceTree = "<group>"; };
 		947C84C81C044DC5003C2DF2 /* RXRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXRuntime.m; sourceTree = "<group>"; };
 		9489809E1BC3E331007CFEAF /* RMRefresh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RMRefresh.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,16 +214,6 @@
 				009880665ADF2B7ACBF04296 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		947C84BE1C044BCC003C2DF2 /* OpenUDID */ = {
-			isa = PBXGroup;
-			children = (
-				947C84BF1C044BCC003C2DF2 /* OpenUDID.h */,
-				947C84C01C044BCC003C2DF2 /* OpenUDID.m */,
-				947C84C11C044BCC003C2DF2 /* README.md */,
-			);
-			path = OpenUDID;
 			sourceTree = "<group>";
 		};
 		948980951BC3E330007CFEAF = {
@@ -461,7 +446,6 @@
 		94FC31021BFC4E79002E97D6 /* utility */ = {
 			isa = PBXGroup;
 			children = (
-				947C84BE1C044BCC003C2DF2 /* OpenUDID */,
 				94FC31031BFC4E79002E97D6 /* FDFullscreenPopGesture */,
 				94FC31061BFC4E79002E97D6 /* MBProgessHUD */,
 			);
@@ -732,11 +716,9 @@
 				94FC31291BFC4E79002E97D6 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				94A3457D1C06FC0300F2C8E4 /* NVActivityIndicatorShape.m in Sources */,
 				94FC311D1BFC4E79002E97D6 /* UIColor+Extension.m in Sources */,
-				947C84C21C044BCC003C2DF2 /* OpenUDID.m in Sources */,
 				94FC312C1BFC4E79002E97D6 /* MBProgressHUD.m in Sources */,
 				94FC312A1BFC4E79002E97D6 /* MBProgressHUD+Extension.m in Sources */,
 				94FC311E1BFC4E79002E97D6 /* UIImage+Extension.m in Sources */,
-				947C84C31C044BCC003C2DF2 /* README.md in Sources */,
 				948980A31BC3E331007CFEAF /* main.m in Sources */,
 				94FC31151BFC4E79002E97D6 /* HyLoglnButton.m in Sources */,
 				94FC31161BFC4E79002E97D6 /* HyTransitions.m in Sources */,
