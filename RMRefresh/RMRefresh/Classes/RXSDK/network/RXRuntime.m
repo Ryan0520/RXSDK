@@ -7,7 +7,6 @@
 //
 
 #import "RXRuntime.h"
-#import "OpenUDID.h"
 #import <UIKit/UIKit.h>
 @implementation RXRuntime
 singleton_implementation(RXRuntime)
@@ -23,7 +22,7 @@ singleton_implementation(RXRuntime)
         
         _os = [[UIDevice currentDevice] systemName];
         _osVersion = [[UIDevice currentDevice] systemVersion];
-        _udid = [OpenUDID value];
+        _udid = @"229292929adde33";
     }
     return self;
 }
