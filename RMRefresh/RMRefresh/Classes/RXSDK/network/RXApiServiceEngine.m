@@ -68,8 +68,6 @@ singleton_implementation(RXApiServiceEngine)
              parameters:(NSDictionary *)parameters
       completionHanlder:(CompletionHandler)competionHandler
 {
-    AFHTTPRequestSerializer *serializer = [AFHTTPRequestSerializer serializer];
-    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     manager.requestSerializer = [AFHTTPRequestSerializer serializer];
     AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];

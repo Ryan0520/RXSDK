@@ -100,7 +100,7 @@
         
         NSString *function = (NSString*)[components objectAtIndex:1];
         NSString *argsAsString = [(NSString*)[components objectAtIndex:2]
-                                  stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+                                  stringByRemovingPercentEncoding];
         NSData *argsData = [argsAsString dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary *argsDic = (NSDictionary *)[NSJSONSerialization JSONObjectWithData:argsData options:kNilOptions error:NULL];
         //convert js array to objc array
