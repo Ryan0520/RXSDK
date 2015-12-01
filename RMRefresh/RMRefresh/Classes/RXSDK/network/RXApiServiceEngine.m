@@ -12,9 +12,15 @@
 #import "RXApiServiceResponse.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "NSData+SDK_Encrypt.h"
-#import "RXConst.h"
 #import "RXRuntime.h"
 #define CONVERTER(obj) [obj isEqual:[NSNull null]] ? nil: obj
+
+// api error domain
+NSString *const RXApiServiceErrorDomain = @"Api.Service.ErrorDomain";
+
+// api error message key
+NSString *const RXApiServiceErrorMessage = @"Api.Service.ErrorMessage";
+
 @interface RXApiServiceEngine()
 
 @property (nonatomic, strong) AFURLSessionManager *manager;
