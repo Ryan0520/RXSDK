@@ -7,8 +7,9 @@
 //
 
 #import "ViewController.h"
-
+#import "RXApiEngine.h"
 @interface ViewController ()
+- (IBAction)switchValueChange:(UISwitch *)sender;
 
 @end
 
@@ -16,12 +17,30 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)switchValueChange:(UISwitch *)sender
+{
+    void (^sucessHandler)(NSDictionary *) = ^(NSDictionary *json)
+    {
+        NSLog(@"%@",[NSThread currentThread]);
+    };
+    
+    void (^failureHandler)(NSError *) = ^(NSError *error)
+    {
+        NSLog(@"%@",error);
+    };
+    
+    if (sender.isOn)
+    {
+        for (NSInteger index= 0 ; index< 10; index++) {
+            [[RXApiEngine sharedInstance] requestWithServies:@"option.project_region"
+                                                 parameters:@{}
+                                             successHandler:sucessHandler
+                                             failureHandler:failureHandler];
+        }
+    }else{
+        [[RXApiEngine sharedInstance] cancelAllTask];
+    }
 }
-
 @end

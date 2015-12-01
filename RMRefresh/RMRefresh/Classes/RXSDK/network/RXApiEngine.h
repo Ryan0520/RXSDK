@@ -1,5 +1,5 @@
 //
-//  RXConfig.h
+//  RXApiEngine.h
 //  RXSDK
 //
 //  Created by Ryan on 15/11/17.
@@ -7,6 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "RXApiServiceEngine.h"
+@interface RXApiEngine : RXApiServiceEngine
 
-// ExmapleConst
-extern NSString *const RXExmapleConst;
+singleton_interface(RXApiEngine)
+
+@end

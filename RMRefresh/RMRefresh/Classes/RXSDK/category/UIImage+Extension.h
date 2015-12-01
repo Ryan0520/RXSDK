@@ -51,4 +51,6 @@
  */
 + (instancetype)circleImageNamed:(NSString *)name;
 
+
+
 @end
