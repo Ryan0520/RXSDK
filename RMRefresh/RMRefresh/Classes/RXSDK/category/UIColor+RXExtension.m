@@ -10,7 +10,7 @@
 #define DEFAULT_VOID_COLOR [UIColor whiteColor]
 
 @implementation UIColor (RXExtension)
-+ (UIColor *)rx_colorWithHexString:(NSString *)stringToConvert
++ (UIColor *)colorWithHexString:(NSString *)stringToConvert
 {
     NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     
