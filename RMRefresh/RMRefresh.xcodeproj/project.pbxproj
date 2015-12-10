@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		941838C01C192A1A005D7003 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 941838BF1C192A1A005D7003 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		941838C01C192A1A005D7003 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 941838BF1C192A1A005D7003 /* OpenUDID.m */; };
 		947C84B11C040FD7003C2DF2 /* RXApiServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84B01C040FD7003C2DF2 /* RXApiServiceRequest.m */; };
 		947C84B71C041086003C2DF2 /* RXApiServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84B61C041086003C2DF2 /* RXApiServiceResponse.m */; };
 		947C84BA1C043239003C2DF2 /* RXApiServiceEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84B91C043239003C2DF2 /* RXApiServiceEngine.m */; };

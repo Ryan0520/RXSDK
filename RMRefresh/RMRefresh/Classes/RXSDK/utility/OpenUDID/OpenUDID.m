@@ -3,7 +3,7 @@
 //  openudid
 //
 //  initiated by Yann Lechelle (cofounder @Appsfire) on 8/28/11.
-//  Copyright 2011 OpenUDID.org
+//  Copyright 2011, 2012 OpenUDID.org
 //
 //  Initiators/root branches
 //      iOS code: https://github.com/ylechelle/OpenUDID
@@ -34,13 +34,15 @@
  
  3. This notice may not be removed or altered from any source
  distribution.
-*/
+ */
 
 #if __has_feature(objc_arc)
-#error This file uses the classic non-ARC retain/release model; hints below... 
-    // to selectively compile this file as non-ARC, do as follows:
-    // https://img.skitch.com/20120411-bcku69k1uw528cwh9frh5px8ya.png
+
+// to selectively compile this file as non-ARC, do as follows:
+// https://img.skitch.com/20120717-g3ag5h9a6ehkgpmpjiuen3qpwp.png
 #endif
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 #import "OpenUDID.h"
 #import <CommonCrypto/CommonDigest.h> // Need to import for CC_MD5 access
@@ -56,6 +58,7 @@
 //#define OpenUDIDLog(fmt, ...) NSLog((@"[Line %d] " fmt), __LINE__, ##__VA_ARGS__);
 
 static NSString * kOpenUDIDSessionCache = nil;
+static NSString * const kOpenUDIDDescription = @"OpenUDID_with_iOS6_Support";
 static NSString * const kOpenUDIDKey = @"OpenUDID";
 static NSString * const kOpenUDIDSlotKey = @"OpenUDID_slot";
 static NSString * const kOpenUDIDAppUIDKey = @"OpenUDID_appUID";
@@ -77,7 +80,7 @@ static int const kOpenUDIDRedundancySlots = 100;
 // Convenience method to support iOS & Mac OS X
 //
 + (void) _setDict:(id)dict forPasteboard:(id)pboard {
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR		
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     [pboard setData:[NSKeyedArchiver archivedDataWithRootObject:dict] forPasteboardType:kOpenUDIDDomain];
 #else
     [pboard setData:[NSKeyedArchiver archivedDataWithRootObject:dict] forType:kOpenUDIDDomain];
@@ -88,11 +91,11 @@ static int const kOpenUDIDRedundancySlots = 100;
 // Convenience method to support iOS & Mac OS X
 //
 + (NSMutableDictionary*) _getDictFromPasteboard:(id)pboard {
-#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR	
+#if TARGET_OS_IPHONE || TARGET_IPHONE_SIMULATOR
     id item = [pboard dataForPasteboardType:kOpenUDIDDomain];
 #else
-	id item = [pboard dataForType:kOpenUDIDDomain];
-#endif	
+    id item = [pboard dataForType:kOpenUDIDDomain];
+#endif
     if (item) {
         @try{
             item = [NSKeyedUnarchiver unarchiveObjectWithData:item];
@@ -102,7 +105,7 @@ static int const kOpenUDIDRedundancySlots = 100;
         }
     }
     
-    // return an instance of a MutableDictionary 
+    // return an instance of a MutableDictionary
     return [NSMutableDictionary dictionaryWithDictionary:(item == nil || [item isKindOfClass:[NSDictionary class]]) ? item : nil];
 }
 
@@ -115,27 +118,77 @@ static int const kOpenUDIDRedundancySlots = 100;
     NSString* _openUDID = nil;
     
     // August 2011: One day, this may no longer be allowed in iOS. When that is, just comment this line out.
-    // March 25th 2012: this day has come, let's remove this "outlawed" call... 
-#if TARGET_OS_IPHONE	
-//    if([UIDevice instancesRespondToSelector:@selector(uniqueIdentifier)]){
-//        _openUDID = [[UIDevice currentDevice] uniqueIdentifier];
-//    }
+    // March 25th 2012: this day has come, let's remove this "outlawed" call...
+    // August 2012: well, perhaps much ado about nothing; in any case WWDC2012 gave us something to work with; read below
+#if TARGET_OS_IPHONE
+    //    if([UIDevice instancesRespondToSelector:@selector(uniqueIdentifier)]){
+    //        _openUDID = [[UIDevice currentDevice] uniqueIdentifier];
+    //    }
 #endif
-    // Next we try to use an alternative method which uses the host name, process ID, and a time stamp
-    // We then hash it with md5 to get 32 bytes, and then add 4 extra random bytes
-    // Collision is possible of course, but unlikely and suitable for most industry needs (e.g.. aggregate tracking)
+    
+    //
+    // !!!!! IMPORTANT README !!!!!
+    //
+    // August 2012: iOS 6 introduces new APIs that help us deal with the now deprecated [UIDevice uniqueIdentifier]
+    // Since iOS 6 is still pre-release and under NDA, the following piece of code is meant to produce an error at
+    // compile time. Accredited developers integrating OpenUDID are expected to review the iOS 6 release notes and
+    // documentation, and replace the underscore ______ in the last part of the selector below with the right
+    // selector syntax as described here (make sure to use the right one! last word starts with the letter "A"):
+    // https://developer.apple.com/library/prerelease/ios/#documentation/UIKit/Reference/UIDevice_Class/Reference/UIDevice.html
+    //
+    // The semantic compiler warnings are still normal if you are compiling for iOS 5 only since Xcode will not
+    // know about the two instance methods used on that line; the code running on iOS will work well at run-time.
+    // Either way, it's time that you junped on the iOS 6 bandwagon and start testing your code on iOS 6 ;-)
+    //
+    // WHAT IS THE SIGNIFICANCE OF THIS CHANGE?
+    //
+    // Essentially, this means that OpenUDID will keep on behaving the same way as before for existing users or
+    // new users in iOS 5 and before. For new users on iOS 6 and after, the new official public APIs will take over.
+    // OpenUDID will therefore be obsoleted when iOS reaches significant adoption, anticipated around mid-2013.
+    
+    /*
+     
+     September 14; ok, new development. The alleged API has moved!
+     This part of the code will therefore be updated when iOS 6 is actually released.
+     Nevertheless, if you want to go ahead, the code should be pretty easy to
+     guess... it involves including a .h file from a nine-letter framework that ends
+     with the word "Support", and then assigning _openUDID with the only identifier method called on the sharedManager of that new class... don't forget to add
+     the framework to your project!
+     
+     #if TARGET_OS_IPHONE
+     if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"6.0")) {
+     _openUDID = [[[UIDevice currentDevice] identifierForA_______] UUIDString];
+     # error                                                         ^ read comments above, fix accordingly, and remove this #error line
+     }
+     #endif
+     
+     */
+    
+    // Next we generate a UUID.
+    // UUIDs (Universally Unique Identifiers), also known as GUIDs (Globally Unique Identifiers) or IIDs
+    // (Interface Identifiers), are 128-bit values guaranteed to be unique. A UUID is made unique over
+    // both space and time by combining a value unique to the computer on which it was generated—usually the
+    // Ethernet hardware address—and a value representing the number of 100-nanosecond intervals since
+    // October 15, 1582 at 00:00:00.
+    // We then hash this UUID with md5 to get 32 bytes, and then add 4 extra random bytes
+    // Collision is possible of course, but unlikely and suitable for most industry needs (e.g. aggregate tracking)
     //
     if (_openUDID==nil) {
+        CFUUIDRef uuid = CFUUIDCreate(kCFAllocatorDefault);
+        CFStringRef cfstring = CFUUIDCreateString(kCFAllocatorDefault, uuid);
+        const char *cStr = CFStringGetCStringPtr(cfstring,CFStringGetFastestEncoding(cfstring));
         unsigned char result[16];
-        const char *cStr = [[[NSProcessInfo processInfo] globallyUniqueString] UTF8String];
-        CC_MD5( cStr, (int)strlen(cStr), result );
+        CC_MD5( cStr, (unsigned int)strlen(cStr), result );
+        CFRelease(uuid);
+        CFRelease(cfstring);
+        
         _openUDID = [NSString stringWithFormat:
-                @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%08lx",
-                result[0], result[1], result[2], result[3], 
-                result[4], result[5], result[6], result[7],
-                result[8], result[9], result[10], result[11],
-                result[12], result[13], result[14], result[15],
-                arc4random() % 4294967295];  
+                     @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%08lx",
+                     result[0], result[1], result[2], result[3],
+                     result[4], result[5], result[6], result[7],
+                     result[8], result[9], result[10], result[11],
+                     result[12], result[13], result[14], result[15],
+                     (unsigned long)(arc4random() % NSUIntegerMax)];
     }
     
     // Call to other developers in the Open Source community:
@@ -143,8 +196,8 @@ static int const kOpenUDIDRedundancySlots = 100;
     // feel free to suggest better or alternative "UDID" generation code above.
     // NOTE that the goal is NOT to find a better hash method, but rather, find a decentralized (i.e. not web-based)
     // 160 bits / 20 bytes random string generator with the fewest possible collisions.
-    // 
-
+    //
+    
     return _openUDID;
 }
 
@@ -159,7 +212,7 @@ static int const kOpenUDIDRedundancySlots = 100;
 }
 
 + (NSString*) valueWithError:(NSError **)error {
-
+    
     if (kOpenUDIDSessionCache!=nil) {
         if (error!=nil)
             *error = [NSError errorWithDomain:kOpenUDIDDomain
@@ -168,19 +221,20 @@ static int const kOpenUDIDRedundancySlots = 100;
         return kOpenUDIDSessionCache;
     }
     
-  	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     // The AppUID will uniquely identify this app within the pastebins
     //
-    NSString * appUID = (NSString *) [defaults objectForKey:kOpenUDIDAppUIDKey];
+    NSString * appUID = [defaults objectForKey:kOpenUDIDAppUIDKey];
     if(appUID == nil)
     {
-      // generate a new uuid and store it in user defaults
-      CFUUIDRef uuid = CFUUIDCreate(NULL);
-      appUID = (NSString *) CFUUIDCreateString(NULL, uuid);
-      CFRelease(uuid);
+        // generate a new uuid and store it in user defaults
+        CFUUIDRef uuid = CFUUIDCreate(NULL);
+        appUID = (NSString *) CFBridgingRelease(CFUUIDCreateString(NULL, uuid));
+        CFRelease(uuid);
+        //  [appUID autorelease];
     }
-  
+    
     NSString* openUDID = nil;
     NSString* myRedundancySlotPBid = nil;
     NSDate* optedOutDate = nil;
@@ -237,7 +291,7 @@ static int const kOpenUDIDRedundancySlots = 100;
                 // the local dictionary is prime on the opt-out subject, so ignore if already opted-out locally
                 if (optedOut) {
                     optedOutDate = [dict objectForKey:kOpenUDIDOOTSKey];
-                    optedOut = optedOutDate!=nil;   
+                    optedOut = optedOutDate!=nil;
                 }
             }
         }
@@ -249,10 +303,10 @@ static int const kOpenUDIDRedundancySlots = 100;
     NSArray* arrayOfUDIDs = [frequencyDict keysSortedByValueUsingSelector:@selector(compare:)];
     NSString* mostReliableOpenUDID = (arrayOfUDIDs!=nil && [arrayOfUDIDs count]>0)? [arrayOfUDIDs lastObject] : nil;
     OpenUDIDLog(@"Freq Dict = %@\nMost reliable %@",frequencyDict,mostReliableOpenUDID);
-        
+    
     // if openUDID was not retrieved from the local preferences, then let's try to get it from the frequency dictionary above
     //
-    if (openUDID==nil) {        
+    if (openUDID==nil) {
         if (mostReliableOpenUDID==nil) {
             // this is the case where this app instance is likely to be the first one to use OpenUDID on this device
             // we create the OpenUDID, legacy or semi-random (i.e. most certainly unique)
@@ -260,12 +314,12 @@ static int const kOpenUDIDRedundancySlots = 100;
             openUDID = [OpenUDID _generateFreshOpenUDID];
         } else {
             // or we leverage the OpenUDID shared by other apps that have already gone through the process
-            // 
+            //
             openUDID = mostReliableOpenUDID;
         }
         // then we create a local representation
         //
-        if (localDict==nil) { 
+        if (localDict==nil) {
             localDict = [NSMutableDictionary dictionaryWithCapacity:4];
             [localDict setObject:openUDID forKey:kOpenUDIDKey];
             [localDict setObject:appUID forKey:kOpenUDIDAppUIDKey];
@@ -304,12 +358,12 @@ static int const kOpenUDIDRedundancySlots = 100;
         if (openUDID && localDict)
             [OpenUDID _setDict:localDict forPasteboard:slotPB];
     }
-
+    
     // Save the dictionary locally if applicable
     //
     if (localDict && saveLocalDictToDefaults)
         [defaults setObject:localDict forKey:kOpenUDIDKey];
-
+    
     // If the UIPasteboard external representation marks this app as opted-out, then to respect privacy, we return the ZERO OpenUDID, a sequence of 40 zeros...
     // This is a *new* case that developers have to deal with. Unlikely, statistically low, but still.
     // To circumvent this and maintain good tracking (conversion ratios, etc.), developers are invited to calculate how many of their users have opted-out from the full set of users.
@@ -319,11 +373,11 @@ static int const kOpenUDIDRedundancySlots = 100;
         if (error!=nil) *error = [NSError errorWithDomain:kOpenUDIDDomain
                                                      code:kOpenUDIDErrorOptedOut
                                                  userInfo:[NSDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"Application with unique id %@ is opted-out from OpenUDID as of %@",appUID,optedOutDate],@"description", nil]];
-            
-        kOpenUDIDSessionCache = [[NSString stringWithFormat:@"%040x",0] retain];
+        
+        kOpenUDIDSessionCache = [NSString stringWithFormat:@"%040x",0];
         return kOpenUDIDSessionCache;
     }
-
+    
     // return the well earned openUDID!
     //
     if (error!=nil) {
@@ -336,17 +390,17 @@ static int const kOpenUDIDRedundancySlots = 100;
                                          code:kOpenUDIDErrorNone
                                      userInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"OpenUDID succesfully retrieved",@"description", nil]];
     }
-    kOpenUDIDSessionCache = [openUDID retain];
+    kOpenUDIDSessionCache = openUDID;
     return kOpenUDIDSessionCache;
 }
 
 + (void) setOptOut:(BOOL)optOutValue {
-
+    
     // init call
     [OpenUDID value];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-
+    
     // load the dictionary from local cache or create one
     id dict = [defaults objectForKey:kOpenUDIDKey];
     if ([dict isKindOfClass:[NSDictionary class]]) {
@@ -354,14 +408,14 @@ static int const kOpenUDIDRedundancySlots = 100;
     } else {
         dict = [NSMutableDictionary dictionaryWithCapacity:2];
     }
-
+    
     // set the opt-out date or remove key, according to parameter
     if (optOutValue)
         [dict setObject:[NSDate date] forKey:kOpenUDIDOOTSKey];
     else
         [dict removeObjectForKey:kOpenUDIDOOTSKey];
-
-  	// store the dictionary locally
+    
+    // store the dictionary locally
     [defaults setObject:dict forKey:kOpenUDIDKey];
     
     OpenUDIDLog(@"Local dict after opt-out = %@",dict);
