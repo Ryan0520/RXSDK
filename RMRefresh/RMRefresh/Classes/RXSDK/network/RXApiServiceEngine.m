@@ -140,17 +140,17 @@ singleton_implementation(RXApiServiceEngine)
 }
 
 /**
- *   发送一个拼接httpbody类型的POST请求,
+ *   发送一个拼接httpbody类型的POST请求
  *
  *  @param servies        服务名
  *  @param parameters     参数
  *  @param successHandler 成功回调
  *  @param failureHanler  失败回调
  */
-- (void)requestWithServies:(NSString *)servies
-                parameters:(NSDictionary *)parameters
-            successHandler:(SuccessHandler)successHandler
-            failureHandler:(FailureHandler)failureHanler
+- (void)requestService:(NSString *)servies
+            parameters:(NSDictionary *)parameters
+             onSuccess:(SuccessHandler)successHandler
+             onFailure:(FailureHandler)failureHanler
 {
     RXApiServiceRequest *serviceRequest = [self generateServiceRequestWithServiceName:servies parameters:parameters];
     [self.requset setHTTPBody:[self encodeRequest:serviceRequest]];

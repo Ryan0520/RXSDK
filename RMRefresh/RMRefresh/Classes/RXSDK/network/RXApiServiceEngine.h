@@ -40,10 +40,10 @@ singleton_interface(RXApiServiceEngine)
  *  @param successHandler 成功回调
  *  @param failureHanler  失败回调
  */
-- (void)requestWithServies:(NSString *)servies
-                parameters:(NSDictionary *)parameters
-            successHandler:(SuccessHandler)successHandler
-            failureHandler:(FailureHandler)failureHanler;
+- (void)requestService:(NSString *)servies
+            parameters:(NSDictionary *)parameters
+             onSuccess:(SuccessHandler)successHandler
+             onFailure:(FailureHandler)failureHanler;
 /**
  *  初始化
  *

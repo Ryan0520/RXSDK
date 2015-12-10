@@ -34,10 +34,10 @@
     if (sender.isOn)
     {
         for (NSInteger index= 0 ; index< 10; index++) {
-            [[RXApiEngine sharedInstance] requestWithServies:@"option.project_region"
-                                                 parameters:@{}
-                                             successHandler:sucessHandler
-                                             failureHandler:failureHandler];
+            [[RXApiEngine sharedInstance] requestService:@"option.project_region"
+                                              parameters:@{}
+                                               onSuccess:sucessHandler
+                                               onFailure:failureHandler];
         }
     }else{
         [[RXApiEngine sharedInstance] cancelAllTask];
