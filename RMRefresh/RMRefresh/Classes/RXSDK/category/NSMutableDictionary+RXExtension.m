@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Ryan. All rights reserved.
 //
 
-#import "NSMutableDictionary+Extension.h"
+#import "NSMutableDictionary+RXExtension.h"
 
-@implementation NSMutableDictionary (Extension)
+@implementation NSMutableDictionary (RXExtension)
 /**
  *  处理urlQuery的参数转成可变字典
  *
@@ -16,7 +16,7 @@
  *
  *  @return 可变字典
  */
-+ (instancetype)dealUrlParmasWithQuery:(NSString *)urlQuery;
++ (instancetype)rx_dealUrlParmasWithQuery:(NSString *)urlQuery;
 {
     NSArray *strings = [urlQuery componentsSeparatedByString:@"&"];
     NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];

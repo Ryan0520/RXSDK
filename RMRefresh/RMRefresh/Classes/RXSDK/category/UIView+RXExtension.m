@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Ryan. All rights reserved.
 //
 
-#import "UIView+Extension.h"
+#import "UIView+RXExtension.h"
 
-@implementation UIView (Extension)
+@implementation UIView (RXExtension)
 - (CGFloat)left {
     return self.frame.origin.x;
 }

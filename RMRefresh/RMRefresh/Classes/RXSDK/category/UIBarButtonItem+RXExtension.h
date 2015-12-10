@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIBarButtonItem (Extension)
+@interface UIBarButtonItem (RXExtension)
 /**
  *  返回图片样式导航条Item
  *
@@ -19,7 +19,7 @@
  *
  *  @return UIBarButtonItem
  */
-+ (instancetype)barBtnItemWithNmlImg:(NSString *)nmlIme
++ (instancetype)rx_barBtnItemWithNmlImg:(NSString *)nmlIme
                               hltImg:(NSString *)hltImg
                               target:(id)target
                               action:(SEL)action;
@@ -35,7 +35,7 @@
  *
  *  @return UIBarButtonItem
  */
-+ (instancetype)barBtnItemWithTitle:(NSString *)title
++ (instancetype)rx_barBtnItemWithTitle:(NSString *)title
                          titleColor:(UIColor *)titleColor
                           titleFont:(UIFont *)titleFont
                              target:(id)target

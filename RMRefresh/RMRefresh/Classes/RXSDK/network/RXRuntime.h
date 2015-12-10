@@ -10,22 +10,19 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface RXRuntime : NSObject
 singleton_interface(RXRuntime)
-// 操作系统
-@property (nonatomic, strong, readonly) NSString *os;
+/** 操作系统 */
+@property (nonatomic, copy, readonly) NSString *os;
 
-// 操作系统版本
-@property (nonatomic, strong, readonly) NSString *osVersion;
+/** 操作系统版本 */
+@property (nonatomic, copy, readonly) NSString *osVersion;
 
-// 应用名
-@property (nonatomic, strong, readonly) NSString *appName;
+/** 应用名 */
+@property (nonatomic, copy, readonly) NSString *appName;
 
-// 应用版本
-@property (nonatomic, strong, readonly) NSString *appVersion;
+/** 应用版本 */
+@property (nonatomic, copy, readonly) NSString *appVersion;
 
-// 设备ID
-@property (nonatomic, strong, readonly) NSString *udid;
-
-// 缓存目录
-@property(nonatomic, strong, readonly) NSString *cacheDirPath;
+/** 设备ID */
+@property (nonatomic, copy, readonly) NSString *udid;
 @end
 NS_ASSUME_NONNULL_END

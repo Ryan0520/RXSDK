@@ -44,11 +44,11 @@
     // 下面的名字需要对应好
     NSString *imageName=@"lunch-640x960";
     
-    if(iPhone5) imageName=@"lunch-640x1136";
+    if(rx_iPhone5) imageName=@"lunch-640x1136";
     
-    if(iPhone6) imageName = @"lunch-750x1334";
+    if(rx_iPhone6) imageName = @"lunch-750x1334";
     
-    if(iPhone6P) imageName = @"lunch-1242x2208";
+    if(rx_iPhone6P) imageName = @"lunch-1242x2208";
     
     UIImage *image = [UIImage imageNamed:imageName];
     

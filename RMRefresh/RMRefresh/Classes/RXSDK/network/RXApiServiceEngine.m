@@ -21,9 +21,11 @@ NSString *const RXApiServiceErrorDomain = @"Api.Service.ErrorDomain";
 // api error message key
 NSString *const RXApiServiceErrorMessage = @"Api.Service.ErrorMessage";
 
+static NSTimeInterval const timeoutInterval = 45.0f;
+
 @interface RXApiServiceEngine()
 
-@property (nonatomic, strong) AFURLSessionManager *manager;
+@property (nonatomic, strong) AFURLSessionManager *sessionManager;
 
 @property (nonatomic, copy) NSString *baseUrl;
 
@@ -50,10 +52,10 @@ singleton_implementation(RXApiServiceEngine)
     {
         NSURLSessionConfiguration *configuration =
         [NSURLSessionConfiguration defaultSessionConfiguration];
-        _manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        _sessionManager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
         [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
         AFHTTPResponseSerializer *responseSerializer = [AFHTTPResponseSerializer serializer];
-        [_manager setResponseSerializer:responseSerializer];
+        [_sessionManager setResponseSerializer:responseSerializer];
         
         _baseUrl = baseUrl;
         _secretKey = secretKey;
@@ -153,35 +155,35 @@ singleton_implementation(RXApiServiceEngine)
     RXApiServiceRequest *serviceRequest = [self generateServiceRequestWithServiceName:servies parameters:parameters];
     [self.requset setHTTPBody:[self encodeRequest:serviceRequest]];
     
-    NSURLSessionDataTask *dataTask = [_manager dataTaskWithRequest:self.requset completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
-                                      {
-                                          NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-                                          
-                                          // 请求成功,有数据回来
-                                          if (httpResponse.statusCode == 200) {
-                                              RXApiServiceResponse *response = [self decodeResponse:responseObject];
-                                              NSLog(@"response.content = \n%@",[self dictionaryToJson:response.content]);
-                                              if (response.status == RXApiServiceResponseStatusSuccess) {
-                                                  if (successHandler) {
-                                                      successHandler(response.content);
-                                                  }
-                                              }else{
-                                                  NSDictionary *userInfo = @{RXApiServiceErrorMessage : response.errorMessage};
-                                                  NSError *error = [NSError errorWithDomain:RXApiServiceErrorDomain
-                                                                                       code:response.status
-                                                                                   userInfo:userInfo];
-                                                  if (failureHanler) {
-                                                      failureHanler(error);
-                                                  }
-                                              }
-                                          }
-                                          // 请求失败
-                                          if (error) {
-                                              if (failureHanler) {
-                                                  failureHanler(error);
-                                              }
-                                          }
-                                      }];
+    NSURLSessionDataTask *dataTask = [_sessionManager dataTaskWithRequest:self.requset completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
+   {
+          NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+    
+          // 请求成功,有数据回来
+          if (httpResponse.statusCode == 200) {
+              RXApiServiceResponse *response = [self decodeResponse:responseObject];
+              NSLog(@"response.content = \n%@",[self dictionaryToJson:response.content]);
+              if (response.status == RXApiServiceResponseStatusSuccess) {
+                  if (successHandler) {
+                      successHandler(response.content);
+                  }
+              }else{
+                  NSDictionary *userInfo = @{RXApiServiceErrorMessage : response.errorMessage};
+                  NSError *error = [NSError errorWithDomain:RXApiServiceErrorDomain
+                                                       code:response.status
+                                                   userInfo:userInfo];
+                  if (failureHanler) {
+                      failureHanler(error);
+                  }
+              }
+          }
+          // 请求失败
+          if (error) {
+              if (failureHanler) {
+                  failureHanler(error);
+              }
+          }
+    }];
     
     [dataTask resume];
     self.dataTask = dataTask;
@@ -263,9 +265,15 @@ singleton_implementation(RXApiServiceEngine)
 - (NSMutableURLRequest *)requset
 {
     if (!_requset) {
+        
         NSURL *baseURL = [NSURL URLWithString:_baseUrl];
-        _requset = [NSMutableURLRequest requestWithURL:baseURL cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:45.0f];
+        
+        _requset = [NSMutableURLRequest requestWithURL:baseURL
+                                           cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                       timeoutInterval:timeoutInterval];
+        
         [_requset setValue:@"Content-Type" forHTTPHeaderField:@"application/json"];
+        
         _requset.HTTPMethod = @"POST";
     }
     return _requset;

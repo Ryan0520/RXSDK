@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941838C01C192A1A005D7003 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 941838BF1C192A1A005D7003 /* OpenUDID.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		947C84B11C040FD7003C2DF2 /* RXApiServiceRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84B01C040FD7003C2DF2 /* RXApiServiceRequest.m */; };
 		947C84B71C041086003C2DF2 /* RXApiServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84B61C041086003C2DF2 /* RXApiServiceResponse.m */; };
 		947C84BA1C043239003C2DF2 /* RXApiServiceEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 947C84B91C043239003C2DF2 /* RXApiServiceEngine.m */; };
@@ -29,15 +30,15 @@
 		94FC31151BFC4E79002E97D6 /* HyLoglnButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D21BFC4E79002E97D6 /* HyLoglnButton.m */; };
 		94FC31161BFC4E79002E97D6 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D41BFC4E79002E97D6 /* HyTransitions.m */; };
 		94FC31171BFC4E79002E97D6 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D61BFC4E79002E97D6 /* SpinerLayer.m */; };
-		94FC31181BFC4E79002E97D6 /* NSBundle+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D91BFC4E79002E97D6 /* NSBundle+Extension.m */; };
+		94FC31181BFC4E79002E97D6 /* NSBundle+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D91BFC4E79002E97D6 /* NSBundle+RXExtension.m */; };
 		94FC31191BFC4E79002E97D6 /* NSData+SDK_Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30DB1BFC4E79002E97D6 /* NSData+SDK_Encrypt.m */; };
-		94FC311A1BFC4E79002E97D6 /* NSDate+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30DD1BFC4E79002E97D6 /* NSDate+Extension.m */; };
-		94FC311B1BFC4E79002E97D6 /* NSMutableDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30DF1BFC4E79002E97D6 /* NSMutableDictionary+Extension.m */; };
-		94FC311C1BFC4E79002E97D6 /* UIBarButtonItem+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30E31BFC4E79002E97D6 /* UIBarButtonItem+Extension.m */; };
-		94FC311D1BFC4E79002E97D6 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30E51BFC4E79002E97D6 /* UIColor+Extension.m */; };
-		94FC311E1BFC4E79002E97D6 /* UIImage+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30E71BFC4E79002E97D6 /* UIImage+Extension.m */; };
+		94FC311A1BFC4E79002E97D6 /* NSDate+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30DD1BFC4E79002E97D6 /* NSDate+RXExtension.m */; };
+		94FC311B1BFC4E79002E97D6 /* NSMutableDictionary+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30DF1BFC4E79002E97D6 /* NSMutableDictionary+RXExtension.m */; };
+		94FC311C1BFC4E79002E97D6 /* UIBarButtonItem+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30E31BFC4E79002E97D6 /* UIBarButtonItem+RXExtension.m */; };
+		94FC311D1BFC4E79002E97D6 /* UIColor+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30E51BFC4E79002E97D6 /* UIColor+RXExtension.m */; };
+		94FC311E1BFC4E79002E97D6 /* UIImage+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30E71BFC4E79002E97D6 /* UIImage+RXExtension.m */; };
 		94FC311F1BFC4E79002E97D6 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30E91BFC4E79002E97D6 /* UIScrollView+EmptyDataSet.m */; };
-		94FC31201BFC4E79002E97D6 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30EB1BFC4E79002E97D6 /* UIView+Extension.m */; };
+		94FC31201BFC4E79002E97D6 /* UIView+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30EB1BFC4E79002E97D6 /* UIView+RXExtension.m */; };
 		94FC31211BFC4E79002E97D6 /* RXExampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30EF1BFC4E79002E97D6 /* RXExampleHandler.m */; };
 		94FC31221BFC4E79002E97D6 /* RXUriActionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30F11BFC4E79002E97D6 /* RXUriActionEngine.m */; };
 		94FC31231BFC4E79002E97D6 /* EPChildAppVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30F51BFC4E79002E97D6 /* EPChildAppVC.m */; };
@@ -76,6 +77,8 @@
 		009880665ADF2B7ACBF04296 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		2805CC052CC9AF00A1D347C8 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		774211E6B84952C2C72671F3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		941838BE1C192A1A005D7003 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
+		941838BF1C192A1A005D7003 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
 		947C84AF1C040FD7003C2DF2 /* RXApiServiceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXApiServiceRequest.h; sourceTree = "<group>"; };
 		947C84B01C040FD7003C2DF2 /* RXApiServiceRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXApiServiceRequest.m; sourceTree = "<group>"; };
 		947C84B51C041086003C2DF2 /* RXApiServiceResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXApiServiceResponse.h; sourceTree = "<group>"; };
@@ -121,26 +124,26 @@
 		94FC30D41BFC4E79002E97D6 /* HyTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTransitions.m; sourceTree = "<group>"; };
 		94FC30D51BFC4E79002E97D6 /* SpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinerLayer.h; sourceTree = "<group>"; };
 		94FC30D61BFC4E79002E97D6 /* SpinerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinerLayer.m; sourceTree = "<group>"; };
-		94FC30D81BFC4E79002E97D6 /* NSBundle+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+Extension.h"; sourceTree = "<group>"; };
-		94FC30D91BFC4E79002E97D6 /* NSBundle+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+Extension.m"; sourceTree = "<group>"; };
+		94FC30D81BFC4E79002E97D6 /* NSBundle+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+RXExtension.h"; sourceTree = "<group>"; };
+		94FC30D91BFC4E79002E97D6 /* NSBundle+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+RXExtension.m"; sourceTree = "<group>"; };
 		94FC30DA1BFC4E79002E97D6 /* NSData+SDK_Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDK_Encrypt.h"; sourceTree = "<group>"; };
 		94FC30DB1BFC4E79002E97D6 /* NSData+SDK_Encrypt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SDK_Encrypt.m"; sourceTree = "<group>"; };
-		94FC30DC1BFC4E79002E97D6 /* NSDate+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Extension.h"; sourceTree = "<group>"; };
-		94FC30DD1BFC4E79002E97D6 /* NSDate+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Extension.m"; sourceTree = "<group>"; };
-		94FC30DE1BFC4E79002E97D6 /* NSMutableDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+Extension.h"; sourceTree = "<group>"; };
-		94FC30DF1BFC4E79002E97D6 /* NSMutableDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+Extension.m"; sourceTree = "<group>"; };
+		94FC30DC1BFC4E79002E97D6 /* NSDate+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+RXExtension.h"; sourceTree = "<group>"; };
+		94FC30DD1BFC4E79002E97D6 /* NSDate+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+RXExtension.m"; sourceTree = "<group>"; };
+		94FC30DE1BFC4E79002E97D6 /* NSMutableDictionary+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableDictionary+RXExtension.h"; sourceTree = "<group>"; };
+		94FC30DF1BFC4E79002E97D6 /* NSMutableDictionary+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+RXExtension.m"; sourceTree = "<group>"; };
 		94FC30E01BFC4E79002E97D6 /* RXCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXCategory.h; sourceTree = "<group>"; };
 		94FC30E11BFC4E79002E97D6 /* RXSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXSingleton.h; sourceTree = "<group>"; };
-		94FC30E21BFC4E79002E97D6 /* UIBarButtonItem+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+Extension.h"; sourceTree = "<group>"; };
-		94FC30E31BFC4E79002E97D6 /* UIBarButtonItem+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+Extension.m"; sourceTree = "<group>"; };
-		94FC30E41BFC4E79002E97D6 /* UIColor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extension.h"; sourceTree = "<group>"; };
-		94FC30E51BFC4E79002E97D6 /* UIColor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extension.m"; sourceTree = "<group>"; };
-		94FC30E61BFC4E79002E97D6 /* UIImage+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Extension.h"; sourceTree = "<group>"; };
-		94FC30E71BFC4E79002E97D6 /* UIImage+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Extension.m"; sourceTree = "<group>"; };
+		94FC30E21BFC4E79002E97D6 /* UIBarButtonItem+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+RXExtension.h"; sourceTree = "<group>"; };
+		94FC30E31BFC4E79002E97D6 /* UIBarButtonItem+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+RXExtension.m"; sourceTree = "<group>"; };
+		94FC30E41BFC4E79002E97D6 /* UIColor+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+RXExtension.h"; sourceTree = "<group>"; };
+		94FC30E51BFC4E79002E97D6 /* UIColor+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RXExtension.m"; sourceTree = "<group>"; };
+		94FC30E61BFC4E79002E97D6 /* UIImage+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RXExtension.h"; sourceTree = "<group>"; };
+		94FC30E71BFC4E79002E97D6 /* UIImage+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RXExtension.m"; sourceTree = "<group>"; };
 		94FC30E81BFC4E79002E97D6 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		94FC30E91BFC4E79002E97D6 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
-		94FC30EA1BFC4E79002E97D6 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
-		94FC30EB1BFC4E79002E97D6 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		94FC30EA1BFC4E79002E97D6 /* UIView+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RXExtension.h"; sourceTree = "<group>"; };
+		94FC30EB1BFC4E79002E97D6 /* UIView+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RXExtension.m"; sourceTree = "<group>"; };
 		94FC30EE1BFC4E79002E97D6 /* RXExampleHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXExampleHandler.h; sourceTree = "<group>"; };
 		94FC30EF1BFC4E79002E97D6 /* RXExampleHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXExampleHandler.m; sourceTree = "<group>"; };
 		94FC30F01BFC4E79002E97D6 /* RXUriActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXUriActionEngine.h; sourceTree = "<group>"; };
@@ -211,6 +214,15 @@
 				009880665ADF2B7ACBF04296 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		941838BD1C192A1A005D7003 /* OpenUDID */ = {
+			isa = PBXGroup;
+			children = (
+				941838BE1C192A1A005D7003 /* OpenUDID.h */,
+				941838BF1C192A1A005D7003 /* OpenUDID.m */,
+			);
+			path = OpenUDID;
 			sourceTree = "<group>";
 		};
 		948980951BC3E330007CFEAF = {
@@ -347,24 +359,24 @@
 			children = (
 				94FC30E01BFC4E79002E97D6 /* RXCategory.h */,
 				94FC30E11BFC4E79002E97D6 /* RXSingleton.h */,
-				94FC30D81BFC4E79002E97D6 /* NSBundle+Extension.h */,
-				94FC30D91BFC4E79002E97D6 /* NSBundle+Extension.m */,
+				94FC30EA1BFC4E79002E97D6 /* UIView+RXExtension.h */,
+				94FC30EB1BFC4E79002E97D6 /* UIView+RXExtension.m */,
+				94FC30D81BFC4E79002E97D6 /* NSBundle+RXExtension.h */,
+				94FC30D91BFC4E79002E97D6 /* NSBundle+RXExtension.m */,
 				94FC30DA1BFC4E79002E97D6 /* NSData+SDK_Encrypt.h */,
 				94FC30DB1BFC4E79002E97D6 /* NSData+SDK_Encrypt.m */,
-				94FC30DC1BFC4E79002E97D6 /* NSDate+Extension.h */,
-				94FC30DD1BFC4E79002E97D6 /* NSDate+Extension.m */,
-				94FC30DE1BFC4E79002E97D6 /* NSMutableDictionary+Extension.h */,
-				94FC30DF1BFC4E79002E97D6 /* NSMutableDictionary+Extension.m */,
-				94FC30E21BFC4E79002E97D6 /* UIBarButtonItem+Extension.h */,
-				94FC30E31BFC4E79002E97D6 /* UIBarButtonItem+Extension.m */,
-				94FC30E41BFC4E79002E97D6 /* UIColor+Extension.h */,
-				94FC30E51BFC4E79002E97D6 /* UIColor+Extension.m */,
-				94FC30E61BFC4E79002E97D6 /* UIImage+Extension.h */,
-				94FC30E71BFC4E79002E97D6 /* UIImage+Extension.m */,
+				94FC30DC1BFC4E79002E97D6 /* NSDate+RXExtension.h */,
+				94FC30DD1BFC4E79002E97D6 /* NSDate+RXExtension.m */,
+				94FC30DE1BFC4E79002E97D6 /* NSMutableDictionary+RXExtension.h */,
+				94FC30DF1BFC4E79002E97D6 /* NSMutableDictionary+RXExtension.m */,
+				94FC30E21BFC4E79002E97D6 /* UIBarButtonItem+RXExtension.h */,
+				94FC30E31BFC4E79002E97D6 /* UIBarButtonItem+RXExtension.m */,
+				94FC30E41BFC4E79002E97D6 /* UIColor+RXExtension.h */,
+				94FC30E51BFC4E79002E97D6 /* UIColor+RXExtension.m */,
+				94FC30E61BFC4E79002E97D6 /* UIImage+RXExtension.h */,
+				94FC30E71BFC4E79002E97D6 /* UIImage+RXExtension.m */,
 				94FC30E81BFC4E79002E97D6 /* UIScrollView+EmptyDataSet.h */,
 				94FC30E91BFC4E79002E97D6 /* UIScrollView+EmptyDataSet.m */,
-				94FC30EA1BFC4E79002E97D6 /* UIView+Extension.h */,
-				94FC30EB1BFC4E79002E97D6 /* UIView+Extension.m */,
 			);
 			path = category;
 			sourceTree = "<group>";
@@ -441,6 +453,7 @@
 		94FC31021BFC4E79002E97D6 /* utility */ = {
 			isa = PBXGroup;
 			children = (
+				941838BD1C192A1A005D7003 /* OpenUDID */,
 				94FC31031BFC4E79002E97D6 /* FDFullscreenPopGesture */,
 				94FC31061BFC4E79002E97D6 /* MBProgessHUD */,
 			);
@@ -680,17 +693,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94FC31201BFC4E79002E97D6 /* UIView+Extension.m in Sources */,
+				94FC31201BFC4E79002E97D6 /* UIView+RXExtension.m in Sources */,
 				94FC31211BFC4E79002E97D6 /* RXExampleHandler.m in Sources */,
 				94FC30011BFC4078002E97D6 /* AppDelegate.m in Sources */,
 				94FC312F1BFC4E79002E97D6 /* RXKxMenu.m in Sources */,
 				94FC30021BFC4078002E97D6 /* ViewController.m in Sources */,
 				94FC31171BFC4E79002E97D6 /* SpinerLayer.m in Sources */,
+				941838C01C192A1A005D7003 /* OpenUDID.m in Sources */,
 				94FC31221BFC4E79002E97D6 /* RXUriActionEngine.m in Sources */,
 				94A345791C06FC0300F2C8E4 /* NVActivityIndicatorAnimationBallClipRotate.m in Sources */,
 				94FC31281BFC4E79002E97D6 /* RXApiEngine.m in Sources */,
 				94FC312D1BFC4E79002E97D6 /* RXCoreLaunchLite.m in Sources */,
-				94FC311B1BFC4E79002E97D6 /* NSMutableDictionary+Extension.m in Sources */,
+				94FC311B1BFC4E79002E97D6 /* NSMutableDictionary+RXExtension.m in Sources */,
 				94A3457B1C06FC0300F2C8E4 /* NVActivityIndicatorAnimationBallScaleRippleMultiple.m in Sources */,
 				94FC31261BFC4E79002E97D6 /* WebViewJsBridge.m in Sources */,
 				947C84B71C041086003C2DF2 /* RXApiServiceResponse.m in Sources */,
@@ -700,24 +714,24 @@
 				947C84B11C040FD7003C2DF2 /* RXApiServiceRequest.m in Sources */,
 				94FC31231BFC4E79002E97D6 /* EPChildAppVC.m in Sources */,
 				94A3457A1C06FC0300F2C8E4 /* NVActivityIndicatorAnimationBallPulse.m in Sources */,
-				94FC31181BFC4E79002E97D6 /* NSBundle+Extension.m in Sources */,
+				94FC31181BFC4E79002E97D6 /* NSBundle+RXExtension.m in Sources */,
 				94FC311F1BFC4E79002E97D6 /* UIScrollView+EmptyDataSet.m in Sources */,
 				94FC31241BFC4E79002E97D6 /* EPJsBridge.m in Sources */,
 				947C84C91C044DC5003C2DF2 /* RXRuntime.m in Sources */,
-				94FC311C1BFC4E79002E97D6 /* UIBarButtonItem+Extension.m in Sources */,
+				94FC311C1BFC4E79002E97D6 /* UIBarButtonItem+RXExtension.m in Sources */,
 				94FC312E1BFC4E79002E97D6 /* NirKxMenu.m in Sources */,
 				947C84BD1C043379003C2DF2 /* RXBaseCompoent.m in Sources */,
 				94A3457C1C06FC0300F2C8E4 /* NVActivityIndicatorAnimationBallSpinFadeLoader.m in Sources */,
 				94FC31291BFC4E79002E97D6 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				94A3457D1C06FC0300F2C8E4 /* NVActivityIndicatorShape.m in Sources */,
-				94FC311D1BFC4E79002E97D6 /* UIColor+Extension.m in Sources */,
+				94FC311D1BFC4E79002E97D6 /* UIColor+RXExtension.m in Sources */,
 				94FC312C1BFC4E79002E97D6 /* MBProgressHUD.m in Sources */,
 				94FC312A1BFC4E79002E97D6 /* MBProgressHUD+Extension.m in Sources */,
-				94FC311E1BFC4E79002E97D6 /* UIImage+Extension.m in Sources */,
+				94FC311E1BFC4E79002E97D6 /* UIImage+RXExtension.m in Sources */,
 				948980A31BC3E331007CFEAF /* main.m in Sources */,
 				94FC31151BFC4E79002E97D6 /* HyLoglnButton.m in Sources */,
 				94FC31161BFC4E79002E97D6 /* HyTransitions.m in Sources */,
-				94FC311A1BFC4E79002E97D6 /* NSDate+Extension.m in Sources */,
+				94FC311A1BFC4E79002E97D6 /* NSDate+RXExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

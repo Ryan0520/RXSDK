@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (Extension)
-+ (UIColor *)colorWithHexString:(NSString *)stringToConvert;
-
+@interface UIColor (RXExtension)
++ (UIColor *)rx_colorWithHexString:(NSString *)stringToConvert;
 @end

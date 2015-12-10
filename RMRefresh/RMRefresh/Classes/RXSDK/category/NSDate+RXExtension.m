@@ -6,14 +6,14 @@
 //  Copyright (c) 2015年 iOS Team. All rights reserved.
 //
 
-#import "NSDate+Extension.h"
+#import "NSDate+RXExtension.h"
 
-@implementation NSDate (Extension)
+@implementation NSDate (RXExtension)
 
 /**
 *  是否为今天
 */
-- (BOOL)isToday {
+- (BOOL)rx_isToday {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     int unit = NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear;
 
@@ -31,12 +31,12 @@
 /**
 *  是否为昨天
 */
-- (BOOL)isYesterday {
+- (BOOL)rx_isYesterday {
     // 2014-05-01
-    NSDate *nowDate = [[NSDate date] dateWithYMD];
+    NSDate *nowDate = [[NSDate date] rx_dateWithYMD];
 
     // 2014-04-30
-    NSDate *selfDate = [self dateWithYMD];
+    NSDate *selfDate = [self rx_dateWithYMD];
 
     // 获得nowDate和selfDate的差距
     NSCalendar *calendar = [NSCalendar currentCalendar];
@@ -44,7 +44,7 @@
     return cmps.day == 1;
 }
 
-- (NSDate *)dateWithYMD {
+- (NSDate *)rx_dateWithYMD {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"yyyy-MM-dd";
     NSString *selfStr = [fmt stringFromDate:self];
@@ -54,7 +54,7 @@
 /**
 *  是否为今年
 */
-- (BOOL)isThisYear {
+- (BOOL)rx_isThisYear {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     int unit = NSCalendarUnitYear;
 
@@ -67,13 +67,13 @@
     return nowCmps.year == selfCmps.year;
 }
 
-- (NSDateComponents *)deltaWithNow {
+- (NSDateComponents *)rx_deltaWithNow {
     NSCalendar *calendar = [NSCalendar currentCalendar];
     int unit = NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond;
     return [calendar components:unit fromDate:self toDate:[NSDate date] options:0];
 }
 
-+ (NSString *)timestampStrWithDate:(NSDate *)date
++ (NSString *)rx_timestampStrWithDate:(NSDate *)date
 {
     NSDate *newDate = nil;
     if (date == nil) {
@@ -84,16 +84,16 @@
     return [NSString stringWithFormat:@"%zd", (NSInteger)[newDate timeIntervalSince1970]];
 }
 
-+ (NSString *)createDate:(NSDate *)createdDate {
++ (NSString *)rx_createDate:(NSDate *)createdDate {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"YYYY-MM-dd HH:mm:ss"; //日期格式化
-    if (createdDate.isToday) {
+    if (createdDate.rx_isToday) {
         fmt.dateFormat = @"HH:mm";
         return [fmt stringFromDate:createdDate];
-    } else if (createdDate.isYesterday) { // 昨天
+    } else if (createdDate.rx_isYesterday) { // 昨天
         fmt.dateFormat = @"MM-dd HH:mm";
         return [fmt stringFromDate:createdDate];
-    } else if (createdDate.isThisYear) { // 今年(至少是前天)
+    } else if (createdDate.rx_isThisYear) { // 今年(至少是前天)
         fmt.dateFormat = @"MM-dd HH:mm";
         return [fmt stringFromDate:createdDate];
     } else { // 非今年
@@ -102,7 +102,7 @@
     }
 }
 
-+ (NSString *)timestampStrWithDateStr:(NSString *)dateStr format:(NSString *)format
++ (NSString *)rx_timestampStrWithDateStr:(NSString *)dateStr format:(NSString *)format
 {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = format;
@@ -111,18 +111,18 @@
     return timeSp;
 }
 
-+ (NSString *)createDateWithYYYYMMDD:(NSDate *)createdDate
++ (NSString *)rx_createDateWithYYYYMMDD:(NSDate *)createdDate
 {
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"YYYY-MM-dd HH:mm:ss"; //日期格式化
-    if (createdDate.isToday) {
+    if (createdDate.rx_isToday) {
         fmt.dateFormat = @"yyyy年MM月dd日";
         return [fmt stringFromDate:createdDate];
         
-    } else if (createdDate.isYesterday) { // 昨天
+    } else if (createdDate.rx_isYesterday) { // 昨天
         fmt.dateFormat = @"yyyy年MM月dd日";
         return [fmt stringFromDate:createdDate];
-    } else if (createdDate.isThisYear) { // 今年(至少是前天)
+    } else if (createdDate.rx_isThisYear) { // 今年(至少是前天)
         fmt.dateFormat = @"yyyy年MM月dd日";
         return [fmt stringFromDate:createdDate];
     } else { // 非今年
@@ -132,10 +132,10 @@
 
 }
 
-+ (NSString *)transTimeWithTimeString:(NSString *)time
++ (NSString *)rx_transTimeWithTimeString:(NSString *)time
 {
     NSDate *date = [NSDate dateWithTimeIntervalSince1970:[time integerValue]];
-    return [NSDate createDate:date];
+    return [NSDate rx_createDate:date];
 }
 
 @end

@@ -9,6 +9,7 @@
 #import "RXApiEngine.h"
 @implementation RXApiEngine
 singleton_implementation(RXApiEngine)
+
 - (instancetype)init
 {
     self = [super initWithBaseUrl:@"http://42.120.16.240/beetto_wendy/index.php?app=mapi"

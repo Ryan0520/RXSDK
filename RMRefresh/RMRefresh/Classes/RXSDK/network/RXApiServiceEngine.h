@@ -50,8 +50,12 @@ singleton_interface(RXApiServiceEngine)
  *  @param baseUrl   URL
  *  @param secretKey 秘钥
  */
-- (instancetype)initWithBaseUrl:(NSString *)baseUrl secretKey:(NSString *)secretKey;
+- (instancetype)initWithBaseUrl:(NSString *)baseUrl
+                      secretKey:(NSString *)secretKey;
 
+/**
+ *  取消所有任务
+ */
 - (void)cancelAllTask;
 
 @end

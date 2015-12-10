@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Flinkinfo. All rights reserved.
 //
 
-#import "UIBarButtonItem+Extension.h"
+#import "UIBarButtonItem+RXExtension.h"
 
-@implementation UIBarButtonItem (Extension)
+@implementation UIBarButtonItem (RXExtension)
 /**
  *  返回指定样式导航条Item
  *
@@ -19,7 +19,7 @@
  *
  *  @return UIBarButtonItem
  */
-+ (instancetype)barBtnItemWithNmlImg:(NSString *)nmlImg
++ (instancetype)rx_barBtnItemWithNmlImg:(NSString *)nmlImg
                               hltImg:(NSString *)hltImg
                               target:(id)target
                               action:(SEL)action{
@@ -48,7 +48,7 @@
  *
  *  @return UIBarButtonItem
  */
-+ (instancetype)barBtnItemWithTitle:(NSString *)title
++ (instancetype)rx_barBtnItemWithTitle:(NSString *)title
                          titleColor:(UIColor *)titleColor
                           titleFont:(UIFont *)titleFont
                              target:(id)target

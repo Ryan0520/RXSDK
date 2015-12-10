@@ -6,11 +6,11 @@
 //  Copyright (c) 2015年 Kratos. All rights reserved.
 //
 
-#import "UIColor+Extension.h"
+#import "UIColor+RXExtension.h"
 #define DEFAULT_VOID_COLOR [UIColor whiteColor]
 
-@implementation UIColor (Extension)
-+ (UIColor *)colorWithHexString:(NSString *)stringToConvert
+@implementation UIColor (RXExtension)
++ (UIColor *)rx_colorWithHexString:(NSString *)stringToConvert
 {
     NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     

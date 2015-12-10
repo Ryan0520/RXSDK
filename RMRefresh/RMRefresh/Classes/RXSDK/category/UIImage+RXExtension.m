@@ -6,11 +6,11 @@
 //  Copyright (c) 2015年 Flinkinfo. All rights reserved.
 //
 
-#import "UIImage+Extension.h"
+#import "UIImage+RXExtension.h"
 
-@implementation UIImage (Extension)
+@implementation UIImage (RXExtension)
 
-+ (instancetype)circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor
++ (instancetype)rx_circleImageWithName:(NSString *)name borderWidth:(CGFloat)borderWidth borderColor:(UIColor *)borderColor
 {
     // 1.加载原图
     UIImage *oldImage = [UIImage imageNamed:name];
@@ -50,7 +50,7 @@
     return newImage;
 }
 
-+ (instancetype)captureImageWithImageName:(NSString *)imageName
++ (instancetype)rx_captureImageWithImageName:(NSString *)imageName
 {
     UIImage *oldImage = [UIImage imageNamed:imageName];
     
@@ -60,7 +60,7 @@
     return [oldImage resizableImageWithCapInsets:UIEdgeInsetsMake(right, left, right, left)];
 }
 
-+ (instancetype)imageViewWithColor:(UIColor *)color size:(CGSize)size
++ (instancetype)rx_imageViewWithColor:(UIColor *)color size:(CGSize)size
 {
     UIGraphicsBeginImageContextWithOptions(size, NO, 0.0);
     
@@ -78,7 +78,7 @@
 /**
  * 修发图片大小
  */
-+ (instancetype)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize) newSize
++ (instancetype)rx_imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize) newSize
 {
     //  newSize.height= image.size.height*(newSize.width/image.size.width);
     newSize.height = newSize.height;
@@ -89,7 +89,7 @@
     return  newImage;
 }
 
-- (instancetype)circleImage
+- (instancetype)rx_circleImage
 {
     // 开启图形上下文
     UIGraphicsBeginImageContext(self.size);
@@ -118,9 +118,9 @@
     return image;
 }
 
-+ (instancetype)circleImageNamed:(NSString *)name
++ (instancetype)rx_circleImageNamed:(NSString *)name
 {
-    return [[self imageNamed:name] circleImage];
+    return [[self imageNamed:name] rx_circleImage];
 }
 
 @end

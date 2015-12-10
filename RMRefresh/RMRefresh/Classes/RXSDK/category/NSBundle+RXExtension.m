@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Ryan. All rights reserved.
 //
 
-#import "NSBundle+Extension.h"
+#import "NSBundle+RXExtension.h"
 
-@implementation NSBundle (Extension)
+@implementation NSBundle (RXExtension)
 /**
  *  加载从Bundle加载Xib
  *
@@ -16,7 +16,7 @@
  *
  *  @return xib
  */
-+ (id)loadXibNameWith:(NSString *)xibName
++ (id)rx_loadXibNameWith:(NSString *)xibName
 {
     return [[[NSBundle mainBundle] loadNibNamed:xibName
                                           owner:nil

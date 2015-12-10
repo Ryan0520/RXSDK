@@ -8,7 +8,7 @@
 
 #import <UIKit/UIkit.h>
 
-@interface NSBundle (Extension)
+@interface NSBundle (RXExtension)
 /**
  *  加载从Bundle加载Xib
  *
@@ -16,6 +16,6 @@
  *
  *  @return xib
  */
-+ (id)loadXibNameWith:(NSString *)xibName;
++ (id)rx_loadXibNameWith:(NSString *)xibName;
 
 @end

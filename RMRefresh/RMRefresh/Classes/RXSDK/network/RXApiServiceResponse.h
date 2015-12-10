@@ -22,7 +22,7 @@ typedef NS_ENUM(NSInteger , RXApiServiceResponseStatus)
 /** 错误消息，如无错，则为nil */
 @property (nonatomic, copy) NSString *errorMessage;
 /** 应答内容 */
-@property (nonatomic, copy) NSDictionary * content;
+@property (nonatomic, strong) NSDictionary * content;
 
 @end
 

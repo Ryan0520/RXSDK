@@ -8,6 +8,7 @@
 
 #import "RXRuntime.h"
 #import <UIKit/UIKit.h>
+#import "OpenUDID.h"
 @implementation RXRuntime
 singleton_implementation(RXRuntime)
 - (id)init
@@ -22,14 +23,9 @@ singleton_implementation(RXRuntime)
         
         _os = [[UIDevice currentDevice] systemName];
         _osVersion = [[UIDevice currentDevice] systemVersion];
-        _udid = @"229292929adde33";
+        _udid = [OpenUDID value];
     }
     return self;
 }
 
-- (NSString *)cacheDirPath
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    return paths[0];
-}
 @end

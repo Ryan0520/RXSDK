@@ -10,21 +10,21 @@
 #import "RXSingleton.h"
 NS_ASSUME_NONNULL_BEGIN
 @interface RXApiServiceRequest : NSObject
-// 操作系统
+/** 操作系统 */
 @property (nonatomic, copy) NSString *os;
-// 操作系统版本
+/** 操作系统版本 */
 @property (nonatomic, copy) NSString *osVersion;
-// 应用名称
+/** 应用名称 */
 @property (nonatomic, copy) NSString *appName;
-// 应用版本
+/** 应用版本 */
 @property (nonatomic, copy) NSString *appVersion;
-// 设备UDID
+/** 设备UDID */
 @property (nonatomic, copy) NSString *udid;
-// Session ID
+/** Session ID */
 @property (nonatomic, copy) NSString *sessionId;
-// 请求服务名
+/** 请求服务名 */
 @property (nonatomic, copy) NSString *serviceName;
-// 请求参数
+/** 请求参数 */
 @property (nonatomic, strong) NSDictionary *params;
 @end
 NS_ASSUME_NONNULL_END
