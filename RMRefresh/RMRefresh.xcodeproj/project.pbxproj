@@ -27,9 +27,9 @@
 		94A3457E1C06FC0300F2C8E4 /* NVActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A345781C06FC0300F2C8E4 /* NVActivityIndicatorView.m */; };
 		94FC30011BFC4078002E97D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2FFE1BFC4078002E97D6 /* AppDelegate.m */; };
 		94FC30021BFC4078002E97D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30001BFC4078002E97D6 /* ViewController.m */; };
-		94FC31151BFC4E79002E97D6 /* HyLoglnButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D21BFC4E79002E97D6 /* HyLoglnButton.m */; };
-		94FC31161BFC4E79002E97D6 /* HyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D41BFC4E79002E97D6 /* HyTransitions.m */; };
-		94FC31171BFC4E79002E97D6 /* SpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D61BFC4E79002E97D6 /* SpinerLayer.m */; };
+		94FC31151BFC4E79002E97D6 /* RXHyLoglnButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D21BFC4E79002E97D6 /* RXHyLoglnButton.m */; };
+		94FC31161BFC4E79002E97D6 /* RXHyTransitions.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D41BFC4E79002E97D6 /* RXHyTransitions.m */; };
+		94FC31171BFC4E79002E97D6 /* RXSpinerLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D61BFC4E79002E97D6 /* RXSpinerLayer.m */; };
 		94FC31181BFC4E79002E97D6 /* NSBundle+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30D91BFC4E79002E97D6 /* NSBundle+RXExtension.m */; };
 		94FC31191BFC4E79002E97D6 /* NSData+SDK_Encrypt.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30DB1BFC4E79002E97D6 /* NSData+SDK_Encrypt.m */; };
 		94FC311A1BFC4E79002E97D6 /* NSDate+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30DD1BFC4E79002E97D6 /* NSDate+RXExtension.m */; };
@@ -41,10 +41,10 @@
 		94FC31201BFC4E79002E97D6 /* UIView+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30EB1BFC4E79002E97D6 /* UIView+RXExtension.m */; };
 		94FC31211BFC4E79002E97D6 /* RXExampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30EF1BFC4E79002E97D6 /* RXExampleHandler.m */; };
 		94FC31221BFC4E79002E97D6 /* RXUriActionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30F11BFC4E79002E97D6 /* RXUriActionEngine.m */; };
-		94FC31231BFC4E79002E97D6 /* EPChildAppVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30F51BFC4E79002E97D6 /* EPChildAppVC.m */; };
-		94FC31241BFC4E79002E97D6 /* EPJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30F71BFC4E79002E97D6 /* EPJsBridge.m */; };
-		94FC31251BFC4E79002E97D6 /* WebViewJsBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 94FC30F91BFC4E79002E97D6 /* WebViewJsBridge.js */; };
-		94FC31261BFC4E79002E97D6 /* WebViewJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30FA1BFC4E79002E97D6 /* WebViewJsBridge.m */; };
+		94FC31231BFC4E79002E97D6 /* RXChildAppVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30F51BFC4E79002E97D6 /* RXChildAppVC.m */; };
+		94FC31241BFC4E79002E97D6 /* RXJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30F71BFC4E79002E97D6 /* RXJsBridge.m */; };
+		94FC31251BFC4E79002E97D6 /* RXWebViewJsBridge.js in Resources */ = {isa = PBXBuildFile; fileRef = 94FC30F91BFC4E79002E97D6 /* RXWebViewJsBridge.js */; };
+		94FC31261BFC4E79002E97D6 /* RXWebViewJsBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30FA1BFC4E79002E97D6 /* RXWebViewJsBridge.m */; };
 		94FC31281BFC4E79002E97D6 /* RXApiEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC31011BFC4E79002E97D6 /* RXApiEngine.m */; };
 		94FC31291BFC4E79002E97D6 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC31051BFC4E79002E97D6 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		94FC312A1BFC4E79002E97D6 /* MBProgressHUD+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC31081BFC4E79002E97D6 /* MBProgressHUD+Extension.m */; };
@@ -118,12 +118,12 @@
 		94FC2FFE1BFC4078002E97D6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		94FC2FFF1BFC4078002E97D6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		94FC30001BFC4078002E97D6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		94FC30D11BFC4E79002E97D6 /* HyLoglnButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyLoglnButton.h; sourceTree = "<group>"; };
-		94FC30D21BFC4E79002E97D6 /* HyLoglnButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyLoglnButton.m; sourceTree = "<group>"; };
-		94FC30D31BFC4E79002E97D6 /* HyTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyTransitions.h; sourceTree = "<group>"; };
-		94FC30D41BFC4E79002E97D6 /* HyTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyTransitions.m; sourceTree = "<group>"; };
-		94FC30D51BFC4E79002E97D6 /* SpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpinerLayer.h; sourceTree = "<group>"; };
-		94FC30D61BFC4E79002E97D6 /* SpinerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpinerLayer.m; sourceTree = "<group>"; };
+		94FC30D11BFC4E79002E97D6 /* RXHyLoglnButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXHyLoglnButton.h; sourceTree = "<group>"; };
+		94FC30D21BFC4E79002E97D6 /* RXHyLoglnButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXHyLoglnButton.m; sourceTree = "<group>"; };
+		94FC30D31BFC4E79002E97D6 /* RXHyTransitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXHyTransitions.h; sourceTree = "<group>"; };
+		94FC30D41BFC4E79002E97D6 /* RXHyTransitions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXHyTransitions.m; sourceTree = "<group>"; };
+		94FC30D51BFC4E79002E97D6 /* RXSpinerLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXSpinerLayer.h; sourceTree = "<group>"; };
+		94FC30D61BFC4E79002E97D6 /* RXSpinerLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXSpinerLayer.m; sourceTree = "<group>"; };
 		94FC30D81BFC4E79002E97D6 /* NSBundle+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+RXExtension.h"; sourceTree = "<group>"; };
 		94FC30D91BFC4E79002E97D6 /* NSBundle+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+RXExtension.m"; sourceTree = "<group>"; };
 		94FC30DA1BFC4E79002E97D6 /* NSData+SDK_Encrypt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SDK_Encrypt.h"; sourceTree = "<group>"; };
@@ -148,13 +148,13 @@
 		94FC30EF1BFC4E79002E97D6 /* RXExampleHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXExampleHandler.m; sourceTree = "<group>"; };
 		94FC30F01BFC4E79002E97D6 /* RXUriActionEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXUriActionEngine.h; sourceTree = "<group>"; };
 		94FC30F11BFC4E79002E97D6 /* RXUriActionEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXUriActionEngine.m; sourceTree = "<group>"; };
-		94FC30F41BFC4E79002E97D6 /* EPChildAppVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPChildAppVC.h; sourceTree = "<group>"; };
-		94FC30F51BFC4E79002E97D6 /* EPChildAppVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPChildAppVC.m; sourceTree = "<group>"; };
-		94FC30F61BFC4E79002E97D6 /* EPJsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPJsBridge.h; sourceTree = "<group>"; };
-		94FC30F71BFC4E79002E97D6 /* EPJsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPJsBridge.m; sourceTree = "<group>"; };
-		94FC30F81BFC4E79002E97D6 /* WebViewJsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewJsBridge.h; sourceTree = "<group>"; };
-		94FC30F91BFC4E79002E97D6 /* WebViewJsBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = WebViewJsBridge.js; sourceTree = "<group>"; };
-		94FC30FA1BFC4E79002E97D6 /* WebViewJsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewJsBridge.m; sourceTree = "<group>"; };
+		94FC30F41BFC4E79002E97D6 /* RXChildAppVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXChildAppVC.h; sourceTree = "<group>"; };
+		94FC30F51BFC4E79002E97D6 /* RXChildAppVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXChildAppVC.m; sourceTree = "<group>"; };
+		94FC30F61BFC4E79002E97D6 /* RXJsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXJsBridge.h; sourceTree = "<group>"; };
+		94FC30F71BFC4E79002E97D6 /* RXJsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXJsBridge.m; sourceTree = "<group>"; };
+		94FC30F81BFC4E79002E97D6 /* RXWebViewJsBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXWebViewJsBridge.h; sourceTree = "<group>"; };
+		94FC30F91BFC4E79002E97D6 /* RXWebViewJsBridge.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = RXWebViewJsBridge.js; sourceTree = "<group>"; };
+		94FC30FA1BFC4E79002E97D6 /* RXWebViewJsBridge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXWebViewJsBridge.m; sourceTree = "<group>"; };
 		94FC30FE1BFC4E79002E97D6 /* RXMarco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMarco.h; sourceTree = "<group>"; };
 		94FC31001BFC4E79002E97D6 /* RXApiEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXApiEngine.h; sourceTree = "<group>"; };
 		94FC31011BFC4E79002E97D6 /* RXApiEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXApiEngine.m; sourceTree = "<group>"; };
@@ -344,12 +344,12 @@
 		94FC30D01BFC4E79002E97D6 /* HySubmit */ = {
 			isa = PBXGroup;
 			children = (
-				94FC30D11BFC4E79002E97D6 /* HyLoglnButton.h */,
-				94FC30D21BFC4E79002E97D6 /* HyLoglnButton.m */,
-				94FC30D31BFC4E79002E97D6 /* HyTransitions.h */,
-				94FC30D41BFC4E79002E97D6 /* HyTransitions.m */,
-				94FC30D51BFC4E79002E97D6 /* SpinerLayer.h */,
-				94FC30D61BFC4E79002E97D6 /* SpinerLayer.m */,
+				94FC30D11BFC4E79002E97D6 /* RXHyLoglnButton.h */,
+				94FC30D21BFC4E79002E97D6 /* RXHyLoglnButton.m */,
+				94FC30D31BFC4E79002E97D6 /* RXHyTransitions.h */,
+				94FC30D41BFC4E79002E97D6 /* RXHyTransitions.m */,
+				94FC30D51BFC4E79002E97D6 /* RXSpinerLayer.h */,
+				94FC30D61BFC4E79002E97D6 /* RXSpinerLayer.m */,
 			);
 			path = HySubmit;
 			sourceTree = "<group>";
@@ -405,9 +405,9 @@
 			isa = PBXGroup;
 			children = (
 				94FC30F31BFC4E79002E97D6 /* example */,
-				94FC30F81BFC4E79002E97D6 /* WebViewJsBridge.h */,
-				94FC30F91BFC4E79002E97D6 /* WebViewJsBridge.js */,
-				94FC30FA1BFC4E79002E97D6 /* WebViewJsBridge.m */,
+				94FC30F81BFC4E79002E97D6 /* RXWebViewJsBridge.h */,
+				94FC30FA1BFC4E79002E97D6 /* RXWebViewJsBridge.m */,
+				94FC30F91BFC4E79002E97D6 /* RXWebViewJsBridge.js */,
 			);
 			path = WebViewJsBridge;
 			sourceTree = "<group>";
@@ -415,10 +415,10 @@
 		94FC30F31BFC4E79002E97D6 /* example */ = {
 			isa = PBXGroup;
 			children = (
-				94FC30F41BFC4E79002E97D6 /* EPChildAppVC.h */,
-				94FC30F51BFC4E79002E97D6 /* EPChildAppVC.m */,
-				94FC30F61BFC4E79002E97D6 /* EPJsBridge.h */,
-				94FC30F71BFC4E79002E97D6 /* EPJsBridge.m */,
+				94FC30F41BFC4E79002E97D6 /* RXChildAppVC.h */,
+				94FC30F51BFC4E79002E97D6 /* RXChildAppVC.m */,
+				94FC30F61BFC4E79002E97D6 /* RXJsBridge.h */,
+				94FC30F71BFC4E79002E97D6 /* RXJsBridge.m */,
 			);
 			path = example;
 			sourceTree = "<group>";
@@ -616,7 +616,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94FC31251BFC4E79002E97D6 /* WebViewJsBridge.js in Resources */,
+				94FC31251BFC4E79002E97D6 /* RXWebViewJsBridge.js in Resources */,
 				948980B11BC3E331007CFEAF /* LaunchScreen.storyboard in Resources */,
 				94FC312B1BFC4E79002E97D6 /* MBProgressHUD.bundle in Resources */,
 				948980AE1BC3E331007CFEAF /* Assets.xcassets in Resources */,
@@ -698,7 +698,7 @@
 				94FC30011BFC4078002E97D6 /* AppDelegate.m in Sources */,
 				94FC312F1BFC4E79002E97D6 /* RXKxMenu.m in Sources */,
 				94FC30021BFC4078002E97D6 /* ViewController.m in Sources */,
-				94FC31171BFC4E79002E97D6 /* SpinerLayer.m in Sources */,
+				94FC31171BFC4E79002E97D6 /* RXSpinerLayer.m in Sources */,
 				941838C01C192A1A005D7003 /* OpenUDID.m in Sources */,
 				94FC31221BFC4E79002E97D6 /* RXUriActionEngine.m in Sources */,
 				94A345791C06FC0300F2C8E4 /* NVActivityIndicatorAnimationBallClipRotate.m in Sources */,
@@ -706,17 +706,17 @@
 				94FC312D1BFC4E79002E97D6 /* RXCoreLaunchLite.m in Sources */,
 				94FC311B1BFC4E79002E97D6 /* NSMutableDictionary+RXExtension.m in Sources */,
 				94A3457B1C06FC0300F2C8E4 /* NVActivityIndicatorAnimationBallScaleRippleMultiple.m in Sources */,
-				94FC31261BFC4E79002E97D6 /* WebViewJsBridge.m in Sources */,
+				94FC31261BFC4E79002E97D6 /* RXWebViewJsBridge.m in Sources */,
 				947C84B71C041086003C2DF2 /* RXApiServiceResponse.m in Sources */,
 				94FC31191BFC4E79002E97D6 /* NSData+SDK_Encrypt.m in Sources */,
 				947C84BA1C043239003C2DF2 /* RXApiServiceEngine.m in Sources */,
 				94A3457E1C06FC0300F2C8E4 /* NVActivityIndicatorView.m in Sources */,
 				947C84B11C040FD7003C2DF2 /* RXApiServiceRequest.m in Sources */,
-				94FC31231BFC4E79002E97D6 /* EPChildAppVC.m in Sources */,
+				94FC31231BFC4E79002E97D6 /* RXChildAppVC.m in Sources */,
 				94A3457A1C06FC0300F2C8E4 /* NVActivityIndicatorAnimationBallPulse.m in Sources */,
 				94FC31181BFC4E79002E97D6 /* NSBundle+RXExtension.m in Sources */,
 				94FC311F1BFC4E79002E97D6 /* UIScrollView+EmptyDataSet.m in Sources */,
-				94FC31241BFC4E79002E97D6 /* EPJsBridge.m in Sources */,
+				94FC31241BFC4E79002E97D6 /* RXJsBridge.m in Sources */,
 				947C84C91C044DC5003C2DF2 /* RXRuntime.m in Sources */,
 				94FC311C1BFC4E79002E97D6 /* UIBarButtonItem+RXExtension.m in Sources */,
 				94FC312E1BFC4E79002E97D6 /* NirKxMenu.m in Sources */,
@@ -729,8 +729,8 @@
 				94FC312A1BFC4E79002E97D6 /* MBProgressHUD+Extension.m in Sources */,
 				94FC311E1BFC4E79002E97D6 /* UIImage+RXExtension.m in Sources */,
 				948980A31BC3E331007CFEAF /* main.m in Sources */,
-				94FC31151BFC4E79002E97D6 /* HyLoglnButton.m in Sources */,
-				94FC31161BFC4E79002E97D6 /* HyTransitions.m in Sources */,
+				94FC31151BFC4E79002E97D6 /* RXHyLoglnButton.m in Sources */,
+				94FC31161BFC4E79002E97D6 /* RXHyTransitions.m in Sources */,
 				94FC311A1BFC4E79002E97D6 /* NSDate+RXExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

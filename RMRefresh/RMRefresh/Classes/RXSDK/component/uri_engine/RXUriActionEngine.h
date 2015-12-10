@@ -7,7 +7,7 @@
 #import "NSMutableDictionary+RXExtension.h"
 #import "RXSingleton.h"
 
-@protocol EPUriActionHandlerProtocol <NSObject>
+@protocol RXUriActionHandlerProtocol <NSObject>
 
 /** 所支持的Scheme */
 - (NSString *)supportedScheme;
@@ -25,7 +25,7 @@
 singleton_interface(RXUriActionEngine)
 
 /** 注册处理器 */
-- (void)register:(id <EPUriActionHandlerProtocol>)handler;
+- (void)register:(id <RXUriActionHandlerProtocol>)handler;
 
 /** 处理URI */
 - (BOOL)handle:(NSURL *)uri;

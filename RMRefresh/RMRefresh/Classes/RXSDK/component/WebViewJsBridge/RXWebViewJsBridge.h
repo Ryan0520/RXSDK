@@ -11,7 +11,7 @@
 #define kCustomProtocolScheme @"jscall"
 #define kBridgeName           @"app"
 
-@interface WebViewJsBridge : NSObject<UIWebViewDelegate>
+@interface RXWebViewJsBridge : NSObject<UIWebViewDelegate>
 
 @property (nonatomic, weak) UIWebView *webView;
 

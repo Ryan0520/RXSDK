@@ -6,17 +6,17 @@
 //  Copyright (c) 2014年 17zuoye. All rights reserved.
 //
 
-#import "WebViewJsBridge.h"
+#import "RXWebViewJsBridge.h"
 #import <objc/runtime.h>
 
-@interface WebViewJsBridge ()
+@interface RXWebViewJsBridge ()
 
 @property (nonatomic, weak) id webViewDelegate;
 @property (nonatomic, weak) NSBundle *resourceBundle;
 
 @end
 
-@implementation WebViewJsBridge
+@implementation RXWebViewJsBridge
 
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(NSObject<UIWebViewDelegate>*)webViewDelegate {
     return [self bridgeForWebView:webView webViewDelegate:webViewDelegate resourceBundle:nil];
@@ -24,7 +24,7 @@
 
 + (instancetype)bridgeForWebView:(UIWebView*)webView webViewDelegate:(NSObject<UIWebViewDelegate>*)webViewDelegate resourceBundle:(NSBundle*)bundle
 {
-    WebViewJsBridge* bridge = [[[self class] alloc] init];
+    RXWebViewJsBridge* bridge = [[[self class] alloc] init];
     [bridge _platformSpecificSetup:webView webViewDelegate:webViewDelegate resourceBundle:bundle];
     return bridge;
 }
@@ -69,7 +69,7 @@
         }
         free(methods);
         NSBundle *bundle = _resourceBundle ? _resourceBundle : [NSBundle mainBundle];
-        NSString *filePath = [bundle pathForResource:@"WebViewJsBridge" ofType:@"js"];
+        NSString *filePath = [bundle pathForResource:@"RXWebViewJsBridge" ofType:@"js"];
         NSString *js = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:nil];
         [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:js, methodList]];
     }

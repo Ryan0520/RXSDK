@@ -6,9 +6,9 @@
 //  Copyright (c) 2015年 Jonathan Tribouharet. All rights reserved.
 //
 
-#import "HyTransitions.h"
+#import "RXHyTransitions.h"
 
-@interface HyTransitions ()
+@interface RXHyTransitions ()
 
 @property (nonatomic,assign) NSTimeInterval transitionDuration;
 
@@ -20,7 +20,7 @@
 
 @end
 
-@implementation HyTransitions
+@implementation RXHyTransitions
 
 -(instancetype) initWithTransitionDuration:(NSTimeInterval)transitionDuration
                              startingAlpha:(CGFloat)startingAlpha

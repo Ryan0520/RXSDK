@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "RXUriActionEngine.h"
 
-@interface RXExampleHandler : NSObject<EPUriActionHandlerProtocol>
+@interface RXExampleHandler : NSObject<RXUriActionHandlerProtocol>
 
 - (void)load;
 

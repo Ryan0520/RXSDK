@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EPChildAppVC : UIViewController
+@interface RXChildAppVC : UIViewController
 
 
 @end

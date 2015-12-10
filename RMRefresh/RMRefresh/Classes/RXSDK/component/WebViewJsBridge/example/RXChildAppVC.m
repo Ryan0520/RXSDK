@@ -6,20 +6,20 @@
 //  Copyright © 2015年 Ryan. All rights reserved.
 //
 
-#import "EPChildAppVC.h"
-#import "EPJsBridge.h"
+#import "RXChildAppVC.h"
+#import "RXJsBridge.h"
 
 #import <AVFoundation/AVFoundation.h>
 
-@interface EPChildAppVC () <UIWebViewDelegate>
+@interface RXChildAppVC () <UIWebViewDelegate>
 
 @property (nonatomic, strong) UIWebView *webView;
 
-@property (nonatomic, strong) EPJsBridge *bridge;
+@property (nonatomic, strong) RXJsBridge *bridge;
 
 @end
 
-@implementation EPChildAppVC
+@implementation RXChildAppVC
 
 - (void)viewDidLoad
 {
@@ -28,7 +28,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     //设置oc和js的桥接
-    _bridge = [EPJsBridge bridgeForWebView:self.webView webViewDelegate:self];
+    _bridge = [RXJsBridge bridgeForWebView:self.webView webViewDelegate:self];
     
     [self.view addSubview:self.webView];
 }

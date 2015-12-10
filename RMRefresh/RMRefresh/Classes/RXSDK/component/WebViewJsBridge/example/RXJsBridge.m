@@ -6,9 +6,9 @@
 //  Copyright © 2015年 Ryan. All rights reserved.
 //
 
-#import "EPJsBridge.h"
+#import "RXJsBridge.h"
 
-@implementation EPJsBridge
+@implementation RXJsBridge
 
 /**
  *  js调用OC的实例方法,无参数

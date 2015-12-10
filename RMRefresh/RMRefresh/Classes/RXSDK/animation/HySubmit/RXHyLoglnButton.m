@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 Jonathan Tribouharet. All rights reserved.
 //
 
-#import "HyLoglnButton.h"
+#import "RXHyLoglnButton.h"
 
 
-@interface HyLoglnButton ()
+@interface RXHyLoglnButton ()
 
 @property (nonatomic,assign) CFTimeInterval shrinkDuration;
 
@@ -23,12 +23,12 @@
 
 @end
 
-@implementation HyLoglnButton
+@implementation RXHyLoglnButton
 
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        _spiner = [[SpinerLayer alloc] initWithFrame:self.frame];
+        _spiner = [[RXSpinerLayer alloc] initWithFrame:self.frame];
         _shrinkCurve = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
         _expandCurve = [CAMediaTimingFunction functionWithControlPoints:0.95 :0.02 :1 :0.05];
         self.shrinkDuration = 0.1;

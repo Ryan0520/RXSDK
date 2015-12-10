@@ -21,7 +21,7 @@ singleton_implementation(RXUriActionEngine)
     return self;
 }
 
-- (void)register:(id <EPUriActionHandlerProtocol>)handler
+- (void)register:(id <RXUriActionHandlerProtocol>)handler
 {
     NSString *key = [self generateKeyWithHandler:handler];
     _mapping[key] = handler;
@@ -31,7 +31,7 @@ singleton_implementation(RXUriActionEngine)
 {
     NSString *key = [self generateKeyWithUri:uri];
 
-    id <EPUriActionHandlerProtocol> handler = _mapping[key];
+    id <RXUriActionHandlerProtocol> handler = _mapping[key];
     if (handler == nil)
     {
         return NO;
@@ -40,7 +40,7 @@ singleton_implementation(RXUriActionEngine)
     return [handler handleUri:uri];
 }
 
-- (NSString *)generateKeyWithHandler:(id <EPUriActionHandlerProtocol>)handler
+- (NSString *)generateKeyWithHandler:(id <RXUriActionHandlerProtocol>)handler
 {
     return [NSString stringWithFormat:@"%@_%@", handler.supportedScheme, handler.supportedHost];
 }

@@ -6,10 +6,10 @@
 //  Copyright (c) 2015年 Jonathan Tribouharet. All rights reserved.
 //
 
-#import "SpinerLayer.h"
+#import "RXSpinerLayer.h"
 #import <UIKit/UIKit.h>
 
-@implementation SpinerLayer
+@implementation RXSpinerLayer
 
 - (instancetype)initWithFrame:(CGRect)frame{
 

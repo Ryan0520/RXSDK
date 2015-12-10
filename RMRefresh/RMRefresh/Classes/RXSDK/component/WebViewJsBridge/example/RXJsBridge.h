@@ -6,14 +6,14 @@
 //  Copyright © 2015年 Ryan. All rights reserved.
 //
 
-#import "WebViewJsBridge.h"
+#import "RXWebViewJsBridge.h"
 
 /**
  *  如果要使用JS与OC之间的调用，需要修改WebViewJsBridge.h
  *  的kBridgeName和WebViewJsBridge.js的bridge参数,
  *  与html里面的bridge要相同.
  */
-@interface EPJsBridge : WebViewJsBridge
+@interface RXJsBridge : RXWebViewJsBridge
 
 /**
  *  js调用OC的实例方法,无参数

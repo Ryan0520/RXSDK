@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface HyTransitions : NSObject <UIViewControllerAnimatedTransitioning>
+@interface RXHyTransitions : NSObject <UIViewControllerAnimatedTransitioning>
 
 - (instancetype)initWithTransitionDuration:(NSTimeInterval)transitionDuration
                              startingAlpha:(CGFloat)startingAlpha

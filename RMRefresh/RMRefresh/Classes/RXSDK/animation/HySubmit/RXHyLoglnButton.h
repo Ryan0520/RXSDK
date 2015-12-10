@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "SpinerLayer.h"
+#import "RXSpinerLayer.h"
 
 typedef void(^Completion)();
 
-@interface HyLoglnButton : UIButton
+@interface RXHyLoglnButton : UIButton
 
-@property (nonatomic,strong) SpinerLayer *spiner;
+@property (nonatomic,strong) RXSpinerLayer *spiner;
 
 - (void)setCompletion:(Completion)completion;
 
