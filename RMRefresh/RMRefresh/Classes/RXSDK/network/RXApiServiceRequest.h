@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /** Session ID */
 @property (nonatomic, copy) NSString *sessionId;
 /** 请求服务名 */
-@property (nonatomic, copy) NSString *serviceName;
+@property (nonatomic, copy) NSString *service;
 /** 请求参数 */
 @property (nonatomic, strong) NSDictionary *params;
 @end

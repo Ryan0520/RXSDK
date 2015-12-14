@@ -13,6 +13,7 @@
 #import "AFNetworkActivityIndicatorManager.h"
 #import "NSData+SDK_Encrypt.h"
 #import "RXRuntime.h"
+#import <CommonCrypto/CommonDigest.h>
 #define CONVERTER(obj) [obj isEqual:[NSNull null]] ? nil: obj
 
 // api error domain
@@ -27,13 +28,19 @@ static NSTimeInterval const timeoutInterval = 45.0f;
 
 @property (nonatomic, strong) AFURLSessionManager *sessionManager;
 
+@property (nonatomic, strong) NSMutableURLRequest *requset;
+
+@property (nonatomic, strong) NSURLSessionDataTask *dataTask;
+
 @property (nonatomic, copy) NSString *baseUrl;
 
 @property (nonatomic, copy) NSString *secretKey;
 
-@property (nonatomic, strong) NSMutableURLRequest *requset;
+@property (nonatomic, copy) NSString *appId;
 
-@property (nonatomic, strong) NSURLSessionDataTask *dataTask;
+@property (nonatomic, copy) NSString *appSecretKey;
+
+@property (nonatomic, copy) NSString *sign;
 
 @end
 
@@ -45,7 +52,10 @@ singleton_implementation(RXApiServiceEngine)
  *  @param baseUrl   URL
  *  @param secretKey 秘钥
  */
-- (instancetype)initWithBaseUrl:(NSString *)baseUrl secretKey:(NSString *)secretKey
+- (instancetype)initWithBaseUrl:(NSString *)baseUrl
+                          appId:(NSString *)appId
+                      secretKey:(NSString *)secretKey
+                   appSecretKey:(NSString *)appSecretKey
 {
     self = [super init];
     if (self)
@@ -58,7 +68,9 @@ singleton_implementation(RXApiServiceEngine)
         [_sessionManager setResponseSerializer:responseSerializer];
         
         _baseUrl = baseUrl;
+        _appId = appId;
         _secretKey = secretKey;
+        _appSecretKey = appSecretKey;
     }
     return self;
 }
@@ -152,25 +164,29 @@ singleton_implementation(RXApiServiceEngine)
              onSuccess:(SuccessHandler)successHandler
              onFailure:(FailureHandler)failureHanler
 {
-    RXApiServiceRequest *serviceRequest = [self generateServiceRequestWithServiceName:servies parameters:parameters];
+    _sign = [self signWithParmas:parameters];
+    
+    RXApiServiceRequest *serviceRequest = [self generateServiceRequestWithServiceName:servies
+                                                                           parameters:parameters];
+    
     [self.requset setHTTPBody:[self encodeRequest:serviceRequest]];
     
     NSURLSessionDataTask *dataTask = [_sessionManager dataTaskWithRequest:self.requset completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
-   {
+    {
           NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
     
           // 请求成功,有数据回来
           if (httpResponse.statusCode == 200) {
               RXApiServiceResponse *response = [self decodeResponse:responseObject];
-              NSLog(@"response.content = \n%@",[self dictionaryToJson:response.content]);
-              if (response.status == RXApiServiceResponseStatusSuccess) {
+              if (response.code == RXApiServiceResponseStatusSuccess) {
                   if (successHandler) {
-                      successHandler(response.content);
+                      NSLog(@"response.data = \n%@",[self dictionaryToJson:response.data]);
+                      successHandler(response.data);
                   }
               }else{
-                  NSDictionary *userInfo = @{RXApiServiceErrorMessage : response.errorMessage};
+                  NSDictionary *userInfo = @{RXApiServiceErrorMessage : response.message};
                   NSError *error = [NSError errorWithDomain:RXApiServiceErrorDomain
-                                                       code:response.status
+                                                       code:response.code
                                                    userInfo:userInfo];
                   if (failureHanler) {
                       failureHanler(error);
@@ -182,6 +198,7 @@ singleton_implementation(RXApiServiceEngine)
               if (failureHanler) {
                   failureHanler(error);
               }
+              NSLog(@"%@",error);
           }
     }];
     
@@ -194,7 +211,7 @@ singleton_implementation(RXApiServiceEngine)
 {
     RXApiServiceRequest *request = [[RXApiServiceRequest alloc] init];
     RXRuntime *runtime = [RXRuntime sharedInstance];
-    request.serviceName = serviceName;
+    request.service = serviceName;
     request.os = runtime.os;
     request.osVersion = runtime.osVersion;
     request.appName = runtime.appName;
@@ -224,7 +241,7 @@ singleton_implementation(RXApiServiceEngine)
     }
     
     NSDictionary *jsonObject = @{
-                                 @"service_name" : request.serviceName,
+                                 @"service" : request.service,
                                  @"os" : request.os,
                                  @"os_version" : request.osVersion,
                                  @"app_name" : request.appName,
@@ -232,14 +249,15 @@ singleton_implementation(RXApiServiceEngine)
                                  @"udid" : request.udid,
                                  @"params" : params
                                  };
-    NSLog(@"request params: == \n%@",jsonObject);
     NSData *data = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:nil];
     if (_secretKey != nil)
     {
         data = [data sdk_AESEncryptWithKey:_secretKey];
     }
+    
     return data;
 }
+
 
 // 解码应答
 - (RXApiServiceResponse *)decodeResponse:(NSData *)responseData
@@ -251,29 +269,28 @@ singleton_implementation(RXApiServiceEngine)
         data = [responseData sdk_AESDecryptWithKey:_secretKey];
     }
     
-    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-    if ([json isKindOfClass:[NSDictionary class]]) {
-        RXApiServiceResponse *response = [[RXApiServiceResponse alloc] init];
-        response.status = (RXApiServiceResponseStatus)[CONVERTER(json[@"status"]) intValue];
-        response.errorMessage = CONVERTER(json[@"error_message"]);
-        response.content = CONVERTER(json[@"content"]);
-        return response;
-    }
-    return nil;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:nil];
+    
+    RXApiServiceResponse *response = [[RXApiServiceResponse alloc] init];
+    response.code = (RXApiServiceResponseStatus)[json[@"code"] intValue];
+    response.message = json[@"message"];
+    response.data = json[@"data"];
+    
+    return response;
 }
 
 - (NSMutableURLRequest *)requset
 {
     if (!_requset) {
+        _baseUrl = [_baseUrl stringByAppendingFormat:@"sign=%@&app_id=%@",_sign,_appId];
         
         NSURL *baseURL = [NSURL URLWithString:_baseUrl];
         
         _requset = [NSMutableURLRequest requestWithURL:baseURL
-                                           cachePolicy:NSURLRequestReturnCacheDataElseLoad
+                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
                                        timeoutInterval:timeoutInterval];
-        
-        [_requset setValue:@"Content-Type" forHTTPHeaderField:@"application/json"];
-        
         _requset.HTTPMethod = @"POST";
     }
     return _requset;
@@ -281,17 +298,53 @@ singleton_implementation(RXApiServiceEngine)
 
 - (NSString *)dictionaryToJson:(NSDictionary *)dic
 {
-    if (!dic) return nil;
+    if (!dic || ![dic isKindOfClass:[NSDictionary class]]) return nil;
     
     NSError *parseError = nil;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dic
                                                        options:NSJSONWritingPrettyPrinted
                                                          error:&parseError];
-    
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
 }
-
+#pragma mark - private method
+#pragma mark 字典排序返回拼接好的字符串
+- (NSString *)sortStringWithParamsDictionary:(NSDictionary *)parmasDictionary
+{
+    // 因为NSDictionary排序
+    NSArray *keys = [parmasDictionary allKeys];
+    NSArray *sortedArray = [keys sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2){
+        return [obj1 compare:obj2 options:NSNumericSearch];
+    }];
+    __block NSString *tmpString = @"";
+    [sortedArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        tmpString = [tmpString stringByAppendingFormat:@"%@",obj];
+        tmpString = [tmpString stringByAppendingFormat:@"%@",[parmasDictionary objectForKey:obj]];
+    }];
+    return tmpString;
+}
+#pragma mark 参数加密
+- (NSString *)signWithParmas:(NSDictionary *)parmas
+{
+    NSString *tmp = [self sortStringWithParamsDictionary:parmas];
+    tmp = [self md5:tmp];
+    tmp = [tmp stringByAppendingString:_appSecretKey];
+    return [self md5:tmp];
+}
+#pragma mark MD5加密
+- (NSString *)md5:(NSString *)string
+{
+    const char* cStr = [string UTF8String];
+    unsigned char result[CC_MD5_DIGEST_LENGTH];
+    CC_MD5(cStr, (unsigned int)strlen(cStr), result);
+    
+    NSMutableString *ret = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH];
+    for (NSInteger i=0; i<CC_MD5_DIGEST_LENGTH; i++) {
+        [ret appendFormat:@"%02x", result[i]];
+    }
+    return ret;
+}
+#pragma mark - 取消所有任务
 - (void)cancelAllTask
 {
     [self.dataTask cancel];

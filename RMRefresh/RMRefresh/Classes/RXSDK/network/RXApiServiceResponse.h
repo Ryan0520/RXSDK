@@ -11,18 +11,18 @@
 typedef NS_ENUM(NSInteger , RXApiServiceResponseStatus)
 {
     // 请求成功
-    RXApiServiceResponseStatusSuccess = 0,
+    RXApiServiceResponseStatusSuccess = 200,
     // 请求失败或有误
     RXApiServiceResponseStatusFailure = 1
 };
 
 @interface RXApiServiceResponse : NSObject
 /** 应答状态 */
-@property (nonatomic, assign) RXApiServiceResponseStatus status;
+@property (nonatomic, assign) RXApiServiceResponseStatus code;
 /** 错误消息，如无错，则为nil */
-@property (nonatomic, copy) NSString *errorMessage;
+@property (nonatomic, copy) NSString *message;
 /** 应答内容 */
-@property (nonatomic, strong) NSDictionary * content;
+@property (nonatomic, strong) NSDictionary *data;
 
 @end
 

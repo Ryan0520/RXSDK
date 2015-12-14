@@ -8,9 +8,9 @@
 
 #import "ViewController.h"
 #import "RXApiEngine.h"
+
 @interface ViewController ()
 - (IBAction)switchValueChange:(UISwitch *)sender;
-
 @end
 
 @implementation ViewController
@@ -21,26 +21,16 @@
 }
 - (IBAction)switchValueChange:(UISwitch *)sender
 {
-    void (^sucessHandler)(NSDictionary *) = ^(NSDictionary *json)
-    {
-        NSLog(@"%@",[NSThread currentThread]);
-    };
+    NSDictionary *dict =  @{@"open_id" : @"123",@"platform" : @"QQ"};
     
-    void (^failureHandler)(NSError *) = ^(NSError *error)
-    {
+    [[RXApiEngine sharedInstance] requestService:@"user.socialLogin"
+                                      parameters:dict
+                                       onSuccess:^(NSDictionary *jsonData) {
+        NSLog(@"%@",jsonData);
+    } onFailure:^(NSError *error) {
         NSLog(@"%@",error);
-    };
-    
-    if (sender.isOn)
-    {
-        for (NSInteger index= 0 ; index< 10; index++) {
-            [[RXApiEngine sharedInstance] requestService:@"option.project_region"
-                                              parameters:@{}
-                                               onSuccess:sucessHandler
-                                               onFailure:failureHandler];
-        }
-    }else{
-        [[RXApiEngine sharedInstance] cancelAllTask];
-    }
+    }];
 }
+
+
 @end

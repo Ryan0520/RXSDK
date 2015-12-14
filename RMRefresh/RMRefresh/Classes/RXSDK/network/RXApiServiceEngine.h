@@ -15,7 +15,7 @@ typedef NS_ENUM(NSInteger, RequestMethodType){
 };
 
 typedef void(^CompletionHandler)(id jsonData,NSError *error);
-typedef void(^SuccessHandler)(NSDictionary *jsonData);
+typedef void(^SuccessHandler)(NSDictionary *json);
 typedef void(^FailureHandler)(NSError *error);
 
 @interface RXApiServiceEngine : RXBaseCompoent
@@ -32,6 +32,7 @@ singleton_interface(RXApiServiceEngine)
                     url:(NSString *)url
              parameters:(NSDictionary *)parameters
       completionHanlder:(CompletionHandler)handler;
+
 /**
  *   发送一个拼接httpbody类型的POST请求,
  *
@@ -44,14 +45,19 @@ singleton_interface(RXApiServiceEngine)
             parameters:(NSDictionary *)parameters
              onSuccess:(SuccessHandler)successHandler
              onFailure:(FailureHandler)failureHanler;
+
 /**
  *  初始化
  *
- *  @param baseUrl   URL
- *  @param secretKey 秘钥
+ *  @param baseUrl      url
+ *  @param appId        服务器申请的appID
+ *  @param secretKey    请求加密用的key
+ *  @param appSecretKey 服务器申请的appSecretKey
  */
 - (instancetype)initWithBaseUrl:(NSString *)baseUrl
-                      secretKey:(NSString *)secretKey;
+                          appId:(NSString *)appId
+                      secretKey:(NSString *)secretKey
+                   appSecretKey:(NSString *)appSecretKey;
 
 /**
  *  取消所有任务
