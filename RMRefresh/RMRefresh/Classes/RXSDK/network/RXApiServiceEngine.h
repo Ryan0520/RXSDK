@@ -57,7 +57,8 @@ singleton_interface(RXApiServiceEngine)
 - (instancetype)initWithBaseUrl:(NSString *)baseUrl
                           appId:(NSString *)appId
                       secretKey:(NSString *)secretKey
-                   appSecretKey:(NSString *)appSecretKey;
+                   appSecretKey:(NSString *)appSecretKey
+                    accessToken:(NSString *)accessToken;
 
 /**
  *  取消所有任务

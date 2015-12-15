@@ -7,6 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NVActivityIndicatorAnimationBallClipRotate.h"
+#import "NVActivityIndicatorAnimationBallPulse.h"
+#import "NVActivityIndicatorAnimationBallScaleRippleMultiple.h"
+#import "NVActivityIndicatorAnimationBallSpinFadeLoader.h"
+#import "NVActivityIndicatorShape.h"
+#import "NVActivityIndicatorAnimationDelegate.h"
 
 typedef NS_ENUM(NSInteger, NVActivityIndicatorType)
 {

@@ -24,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *sessionId;
 /** 请求服务名 */
 @property (nonatomic, copy) NSString *service;
+/** 访问令牌 */
+@property (nonatomic, copy) NSString *accessToken;
 /** 请求参数 */
 @property (nonatomic, strong) NSDictionary *params;
 @end

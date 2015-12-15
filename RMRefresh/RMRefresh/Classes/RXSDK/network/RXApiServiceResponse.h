@@ -7,14 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RXSingleton.h"
-typedef NS_ENUM(NSInteger , RXApiServiceResponseStatus)
-{
-    // 请求成功
-    RXApiServiceResponseStatusSuccess = 200,
-    // 请求失败或有误
-    RXApiServiceResponseStatusFailure = 1
-};
+#import "RXStatusDefine.h"
 
 @interface RXApiServiceResponse : NSObject
 /** 应答状态 */

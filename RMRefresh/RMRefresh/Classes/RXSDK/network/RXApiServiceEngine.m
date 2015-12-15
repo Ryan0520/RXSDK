@@ -35,12 +35,10 @@ static NSTimeInterval const timeoutInterval = 45.0f;
 @property (nonatomic, copy) NSString *baseUrl;
 
 @property (nonatomic, copy) NSString *secretKey;
-
 @property (nonatomic, copy) NSString *appId;
-
 @property (nonatomic, copy) NSString *appSecretKey;
-
 @property (nonatomic, copy) NSString *sign;
+@property (nonatomic, copy) NSString *accessToken;
 
 @end
 
@@ -56,6 +54,7 @@ singleton_implementation(RXApiServiceEngine)
                           appId:(NSString *)appId
                       secretKey:(NSString *)secretKey
                    appSecretKey:(NSString *)appSecretKey
+                    accessToken:(NSString *)accessToken
 {
     self = [super init];
     if (self)
@@ -71,6 +70,7 @@ singleton_implementation(RXApiServiceEngine)
         _appId = appId;
         _secretKey = secretKey;
         _appSecretKey = appSecretKey;
+        _accessToken = accessToken;
     }
     return self;
 }
@@ -178,7 +178,7 @@ singleton_implementation(RXApiServiceEngine)
           // 请求成功,有数据回来
           if (httpResponse.statusCode == 200) {
               RXApiServiceResponse *response = [self decodeResponse:responseObject];
-              if (response.code == RXApiServiceResponseStatusSuccess) {
+              if (response.code == RX_Response_SUCCESS) {
                   if (successHandler) {
                       NSLog(@"response.data = \n%@",[self dictionaryToJson:response.data]);
                       successHandler(response.data);
@@ -218,6 +218,8 @@ singleton_implementation(RXApiServiceEngine)
     request.appVersion = runtime.appVersion;
     request.udid = runtime.udid;
     request.params = parameters;
+    if (_accessToken == nil) _accessToken = @"";
+    request.accessToken = _accessToken;
     return request;
 }
 
@@ -247,6 +249,7 @@ singleton_implementation(RXApiServiceEngine)
                                  @"app_name" : request.appName,
                                  @"app_version" : request.appVersion,
                                  @"udid" : request.udid,
+                                 @"access_token": request.accessToken,
                                  @"params" : params
                                  };
     NSData *data = [NSJSONSerialization dataWithJSONObject:jsonObject options:NSJSONWritingPrettyPrinted error:nil];
@@ -328,8 +331,12 @@ singleton_implementation(RXApiServiceEngine)
 {
     NSString *tmp = [self sortStringWithParamsDictionary:parmas];
     tmp = [self md5:tmp];
+    if (_accessToken.length > 0)
+    {
+        tmp = [self md5:[tmp stringByAppendingString:_accessToken]];
+    }
     tmp = [tmp stringByAppendingString:_appSecretKey];
-    return [self md5:tmp];
+    return [self md5:tmp];;
 }
 #pragma mark MD5加密
 - (NSString *)md5:(NSString *)string

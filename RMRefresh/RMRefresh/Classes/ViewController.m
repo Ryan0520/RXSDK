@@ -8,9 +8,9 @@
 
 #import "ViewController.h"
 #import "RXApiEngine.h"
+#import "KeychainItemWrapper.h"
 
 @interface ViewController ()
-- (IBAction)switchValueChange:(UISwitch *)sender;
 @end
 
 @implementation ViewController
@@ -18,19 +18,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-}
-- (IBAction)switchValueChange:(UISwitch *)sender
-{
-    NSDictionary *dict =  @{@"open_id" : @"123",@"platform" : @"QQ"};
+    [[NSUserDefaults standardUserDefaults] setObject:@"db95135e13cbf19be01c2528691def27f3617c8b"
+                                              forKey:@"access_token"];
     
-    [[RXApiEngine sharedInstance] requestService:@"user.socialLogin"
-                                      parameters:dict
-                                       onSuccess:^(NSDictionary *jsonData) {
-        NSLog(@"%@",jsonData);
-    } onFailure:^(NSError *error) {
+    NSDictionary *parmas = @{@"user_id": @"123"};
+    
+    void (^successHandler)(NSDictionary *) = ^(NSDictionary *json)
+    {
+        
+    };
+    
+    void (^failureHandler)(NSError *) = ^(NSError *error)
+    {
         NSLog(@"%@",error);
-    }];
+    };
+    
+    [[RXApiEngine sharedInstance] requestService:@"user.Test"
+                                      parameters:parmas
+                                       onSuccess:successHandler
+                                       onFailure:failureHandler];
 }
-
-
 @end

@@ -1,13 +1,13 @@
 //
 //  RXApiEngine.h
-//  RXSDK
+//  RMRefresh
 //
-//  Created by Ryan on 15/11/17.
-//  Copyright © 2015年 Ryan. All rights reserved.
+//  Created by Ryan on 15/12/15.
+//  Copyright © 2015年 RyanShen. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "RXApiServiceEngine.h"
+
 @interface RXApiEngine : RXApiServiceEngine
 
 singleton_interface(RXApiEngine)
