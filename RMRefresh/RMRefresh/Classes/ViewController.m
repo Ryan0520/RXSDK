@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "RXApiEngine.h"
-#import "KeychainItemWrapper.h"
 
 @interface ViewController ()
 @end
