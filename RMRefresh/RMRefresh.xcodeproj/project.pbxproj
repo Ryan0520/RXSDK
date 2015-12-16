@@ -53,6 +53,7 @@
 		94BBCD331C1FC172006D6E18 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94BBCD321C1FC172006D6E18 /* Security.framework */; };
 		94BBCD3B1C1FC35D006D6E18 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BBCD3A1C1FC35D006D6E18 /* KeychainItemWrapper.m */; };
 		94BBCD471C1FF124006D6E18 /* RXApiEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BBCD461C1FF124006D6E18 /* RXApiEngine.m */; };
+		94BBCD4A1C20241B006D6E18 /* EPOAuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 94BBCD491C20241B006D6E18 /* EPOAuthManager.m */; };
 		94FC30011BFC4078002E97D6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC2FFE1BFC4078002E97D6 /* AppDelegate.m */; };
 		94FC30021BFC4078002E97D6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FC30001BFC4078002E97D6 /* ViewController.m */; };
 		C610071147EBC5E2895B5D7C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2805CC052CC9AF00A1D347C8 /* libPods.a */; };
@@ -175,6 +176,8 @@
 		94BBCD3A1C1FC35D006D6E18 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		94BBCD451C1FF124006D6E18 /* RXApiEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXApiEngine.h; sourceTree = "<group>"; };
 		94BBCD461C1FF124006D6E18 /* RXApiEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXApiEngine.m; sourceTree = "<group>"; };
+		94BBCD481C20241B006D6E18 /* EPOAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EPOAuthManager.h; sourceTree = "<group>"; };
+		94BBCD491C20241B006D6E18 /* EPOAuthManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EPOAuthManager.m; sourceTree = "<group>"; };
 		94FC2FFD1BFC4078002E97D6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		94FC2FFE1BFC4078002E97D6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		94FC2FFF1BFC4078002E97D6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -297,6 +300,8 @@
 				94FC30001BFC4078002E97D6 /* ViewController.m */,
 				94BBCD451C1FF124006D6E18 /* RXApiEngine.h */,
 				94BBCD461C1FF124006D6E18 /* RXApiEngine.m */,
+				94BBCD481C20241B006D6E18 /* EPOAuthManager.h */,
+				94BBCD491C20241B006D6E18 /* EPOAuthManager.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				94BBCD2F1C1FBD9E006D6E18 /* RXCoreLaunchLite.m in Sources */,
 				94BBCD0E1C1FBD9E006D6E18 /* NVActivityIndicatorAnimationBallScaleRippleMultiple.m in Sources */,
 				94BBCD2D1C1FBD9E006D6E18 /* MBProgressHUD.m in Sources */,
+				94BBCD4A1C20241B006D6E18 /* EPOAuthManager.m in Sources */,
 				94BBCD251C1FBD9E006D6E18 /* RXApiServiceEngine.m in Sources */,
 				94BBCD181C1FBD9E006D6E18 /* NSMutableDictionary+RXExtension.m in Sources */,
 				94BBCD121C1FBD9E006D6E18 /* RXHyLoglnButton.m in Sources */,

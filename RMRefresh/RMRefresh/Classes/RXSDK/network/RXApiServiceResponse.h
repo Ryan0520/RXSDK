@@ -17,6 +17,8 @@
 /** 应答内容 */
 @property (nonatomic, strong) NSDictionary *data;
 
++ (instancetype)responseWithJson:(NSDictionary *)json;
+
 @end
 
 

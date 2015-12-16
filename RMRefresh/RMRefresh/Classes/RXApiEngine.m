@@ -20,6 +20,8 @@ singleton_implementation(RXApiEngine)
         url = @"http://120.24.88.40:8888/oauth2/api?";
     }
     
+//    url = @"http://120.24.88.40:8888/oauth2/api?";
+    
     self = [super initWithBaseUrl:url
                             appId:@"123"
                         secretKey:nil

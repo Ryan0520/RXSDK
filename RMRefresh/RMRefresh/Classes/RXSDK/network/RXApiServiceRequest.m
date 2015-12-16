@@ -9,5 +9,8 @@
 #import "RXApiServiceRequest.h"
 
 @implementation RXApiServiceRequest
-
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"\n请求体request:\nos = %@\nosVersion = %@\nappName = %@\nappVersion = %@\nudid = %@\nsessionId = %@\nservice = %@\naccessToken = %@\nparams = %@\n",_os,_osVersion,_appName,_appVersion,_udid,_sessionId,_service,_accessToken,_params];
+}
 @end

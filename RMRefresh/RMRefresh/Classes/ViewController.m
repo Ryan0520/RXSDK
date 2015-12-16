@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "RXApiEngine.h"
+#import "EPOAuthManager.h"
 
 @interface ViewController ()
 @end
@@ -17,24 +18,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"db95135e13cbf19be01c2528691def27f3617c8b"
-                                              forKey:@"access_token"];
-    
-    NSDictionary *parmas = @{@"user_id": @"123"};
-    
-    void (^successHandler)(NSDictionary *) = ^(NSDictionary *json)
-    {
-        
-    };
-    
     void (^failureHandler)(NSError *) = ^(NSError *error)
     {
         NSLog(@"%@",error);
     };
     
-    [[RXApiEngine sharedInstance] requestService:@"user.Test"
-                                      parameters:parmas
-                                       onSuccess:successHandler
-                                       onFailure:failureHandler];
+    [[NSUserDefaults standardUserDefaults] setObject:@"c5ead4751f0263accdca48087d26f4256285182d" forKey:@"access_token"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSString *phone = @"15521325365";
+
+    [[RXApiEngine sharedInstance] requestService:@"info.chats" parameters:nil onSuccess:^(NSDictionary *json) {
+
+    } onFailure:failureHandler];
+    
+//    [EPOAuthManager loginWithPhone:phone validateCode:@"02877" validateTicket:@"L7QOMGP" successHandler:^(NSString *authCode) {
+//
+//    } failureHandler:failureHandler];
+    
+//    [EPOAuthManager getAccessTokenWithAuthCode:@"XiJfP" scope:@"all" successHandler:^(NSString *access_token) {
+//        
+//    } failureHandler:failureHandler];
+    
+//    [EPOAuthManager fetchValidateCodeWithPhone:phone successHandler:^(NSString *code) {
+//        
+//        NSLog(@"%@",code);
+//
+//    } failureHandler:failureHandler];
+    
+//    [EPOAuthManager fetchValidateCodeWithPhone:phone
+//                                successHandler:^(NSString *code) {
+//                                    NSLog(@"%@",code);
+//                                }
+//                                failureHandler:failureHandler];
 }
 @end

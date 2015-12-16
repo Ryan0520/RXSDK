@@ -10,4 +10,14 @@
 
 @implementation RXApiServiceResponse
 
++ (instancetype)responseWithJson:(NSDictionary *)json
+{
+    if (![json isKindOfClass:[NSDictionary class]]) return nil;
+    RXApiServiceResponse *response = [[RXApiServiceResponse alloc] init];
+    response.message = json[@"message"];
+    response.code = (RXApiServiceResponseStatus)[json[@"code"] integerValue];
+    response.data = json[@"data"];
+    return response;
+}
+
 @end
