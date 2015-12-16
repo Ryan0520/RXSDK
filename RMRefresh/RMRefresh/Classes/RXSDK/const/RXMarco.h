@@ -29,4 +29,6 @@
 #define NSLog(FORMAT, ...) nil
 #endif
 
+#define RXCONVERTER(obj) [obj isEqual:[NSNull null]] ? nil: obj
+
 #endif /* RXMarco_h */

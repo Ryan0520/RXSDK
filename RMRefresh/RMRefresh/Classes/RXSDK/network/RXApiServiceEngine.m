@@ -14,7 +14,6 @@
 #import "NSData+SDK_Encrypt.h"
 #import "RXRuntime.h"
 #import <CommonCrypto/CommonDigest.h>
-#define CONVERTER(obj) [obj isEqual:[NSNull null]] ? nil: obj
 
 // api error domain
 NSString *const RXApiServiceErrorDomain = @"Api.Service.ErrorDomain";

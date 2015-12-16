@@ -23,14 +23,20 @@
         NSLog(@"%@",error);
     };
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"c5ead4751f0263accdca48087d26f4256285182d" forKey:@"access_token"];
+    [[NSUserDefaults standardUserDefaults] setObject:@"60f4fbcba8074bfa70d2ac1bdaf3f1ded420d543" forKey:@"access_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSString *phone = @"15521325365";
 
-    [[RXApiEngine sharedInstance] requestService:@"info.chats" parameters:nil onSuccess:^(NSDictionary *json) {
+    [[RXApiEngine sharedInstance] requestService:@"userInfo.userInfo" parameters:nil onSuccess:^(NSDictionary *json) {
 
     } onFailure:failureHandler];
+    
+    //    [EPOAuthManager fetchValidateCodeWithPhone:phone successHandler:^(NSString *code) {
+    //
+    //        NSLog(@"%@",code);
+    //
+    //    } failureHandler:failureHandler];
     
 //    [EPOAuthManager loginWithPhone:phone validateCode:@"02877" validateTicket:@"L7QOMGP" successHandler:^(NSString *authCode) {
 //
@@ -40,11 +46,7 @@
 //        
 //    } failureHandler:failureHandler];
     
-//    [EPOAuthManager fetchValidateCodeWithPhone:phone successHandler:^(NSString *code) {
-//        
-//        NSLog(@"%@",code);
-//
-//    } failureHandler:failureHandler];
+
     
 //    [EPOAuthManager fetchValidateCodeWithPhone:phone
 //                                successHandler:^(NSString *code) {
