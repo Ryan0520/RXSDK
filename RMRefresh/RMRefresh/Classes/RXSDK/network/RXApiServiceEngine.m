@@ -31,14 +31,13 @@ static NSTimeInterval const timeoutInterval = 45.0f;
 
 @property (nonatomic, strong) NSURLSessionDataTask *dataTask;
 
-@property (nonatomic, copy) NSString *baseUrl;
 @property (nonatomic, copy) NSString *requestUrl;
 
 @property (nonatomic, copy) NSString *secretKey;
 @property (nonatomic, copy) NSString *appId;
 @property (nonatomic, copy) NSString *appSecretKey;
 @property (nonatomic, copy) NSString *sign;
-@property (nonatomic, copy) NSString *accessToken;
+
 
 @end
 

@@ -20,6 +20,11 @@ typedef void(^FailureHandler)(NSError *error);
 
 @interface RXApiServiceEngine : RXBaseCompoent
 singleton_interface(RXApiServiceEngine)
+
+@property (nonatomic, copy) NSString *accessToken;
+
+@property (nonatomic, copy) NSString *baseUrl;
+
 /**
  *  发送一个请求
  *
