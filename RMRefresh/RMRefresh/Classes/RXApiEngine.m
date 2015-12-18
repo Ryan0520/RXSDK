@@ -31,4 +31,47 @@ singleton_implementation(RXApiEngine)
     return self;
 }
 
+/**
+ *  请求openApi服务器
+ *
+ *  @param servies        服务名
+ *  @param parameters     参数
+ *  @param successHandler 成功回调
+ *  @param failureHanler  失败回调
+ */
+- (void)requestOpenApiService:(NSString *)servies
+                   parameters:(NSDictionary *)parameters
+                    onSuccess:(SuccessHandler)successHandler
+                    onFailure:(FailureHandler)failureHanler
+{
+    self.baseUrl = @"http://120.24.88.40:8888/open_api/api?";
+    self.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"EPApiAccessToken"];
+    
+    [self requestService:servies
+              parameters:parameters
+               onSuccess:successHandler
+               onFailure:failureHanler];
+}
+
+/**
+ *  请求OauthApi服务器
+ *
+ *  @param servies        服务名
+ *  @param parameters     参数
+ *  @param successHandler 成功回调
+ *  @param failureHanler  失败回调
+ */
+- (void)requestOauthService:(NSString *)servies
+                 parameters:(NSDictionary *)parameters
+                  onSuccess:(SuccessHandler)successHandler
+                  onFailure:(FailureHandler)failureHanler
+{
+    self.baseUrl  = @"http://120.24.88.40:8888/oauth2/api?";
+    
+    [self requestService:servies
+              parameters:parameters
+               onSuccess:successHandler
+               onFailure:failureHanler];
+}
+
 @end
