@@ -18,20 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    void (^failureHandler)(NSError *) = ^(NSError *error)
-    {
-        NSLog(@"%@",error);
-    };
-    
+//    void (^failureHandler)(NSError *) = ^(NSError *error)
+//    {
+//        NSLog(@"%@",error);
+//    };
+	
     [[NSUserDefaults standardUserDefaults] setObject:@"60f4fbcba8074bfa70d2ac1bdaf3f1ded420d543" forKey:@"access_token"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    NSString *phone = @"15521325365";
-
-    [[RXApiEngine sharedInstance] requestService:@"userInfo.userInfo" parameters:nil onSuccess:^(NSDictionary *json) {
-
-    } onFailure:failureHandler];
-    
+//    NSString *phone = @"15521325365";
+//
+//    [[RXApiEngine sharedInstance] requestService:@"userInfo.userInfo" parameters:nil onSuccess:^(NSDictionary *json) {
+//
+//    } onFailure:failureHandler];
+	
     //    [EPOAuthManager fetchValidateCodeWithPhone:phone successHandler:^(NSString *code) {
     //
     //        NSLog(@"%@",code);

@@ -7,71 +7,89 @@
 //
 
 #import "RXApiEngine.h"
+
+NSString *const EPOAuthApiBaseUrl = @"http://124.172.184.215:8081/oauth2/api?";
+NSString *const EPOpenApiBaseUrl =  @"http://124.172.184.216:8080/open_api/api?";
+
+NSString *const EPApiSecretKey = nil;
+NSString *const EPApiAccessToken = @"ApiAccessToken";
+
+NSString *const EPAppId = @"123";
+NSString *const EPAppSecretKey = @"123";
+
 @implementation RXApiEngine
 singleton_implementation(RXApiEngine)
+
 - (instancetype)init
 {
-    NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"];
-    NSString *url = @"";
-    
-    if (accessToken.length>0) {
-        url = @"http://120.24.88.40:8888/open_api/api?";
-    }else{
-        url = @"http://120.24.88.40:8888/oauth2/api?";
-    }
-    
-//    url = @"http://120.24.88.40:8888/oauth2/api?";
-    
-    self = [super initWithBaseUrl:url
-                            appId:@"123"
-                        secretKey:nil
-                     appSecretKey:@"123"
-                      accessToken:accessToken];
-    
-    return self;
+	NSString *accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"access_token"];
+	NSString *url = @"";
+	
+	if (accessToken.length>0) {
+		url = EPOpenApiBaseUrl;
+	}else{
+		url = EPOAuthApiBaseUrl;
+	}
+	
+	self = [super initWithBaseUrl:url
+							appId:EPAppId
+						secretKey:EPApiSecretKey
+					 appSecretKey:EPAppSecretKey
+					  accessToken:accessToken];
+	
+	return self;
 }
 
 /**
  *  请求openApi服务器
  *
- *  @param servies        服务名
+ *  @param service        服务名
  *  @param parameters     参数
  *  @param successHandler 成功回调
- *  @param failureHanler  失败回调
+ *  @param failureHandler  失败回调
  */
-- (void)requestOpenApiService:(NSString *)servies
-                   parameters:(NSDictionary *)parameters
-                    onSuccess:(SuccessHandler)successHandler
-                    onFailure:(FailureHandler)failureHanler
+- (void)requestOpenApiService:(NSString *)service
+				   parameters:(NSDictionary *)parameters
+					onSuccess:(SuccessHandler)successHandler
+					onFailure:(FailureHandler)failureHandler
 {
-    self.baseUrl = @"http://120.24.88.40:8888/open_api/api?";
-    self.accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"EPApiAccessToken"];
-    
-    [self requestService:servies
-              parameters:parameters
-               onSuccess:successHandler
-               onFailure:failureHanler];
+	self.baseUrl = EPOpenApiBaseUrl;
+//	self.accessToken = [GVUserDefaults standardUserDefaults].accessToken;
+	
+	// 监听AccessToken过期的通知
+	void (^failureBlock)(NSError *) = ^(NSError *error)
+	{
+		if (failureHandler) {
+			failureHandler(error);
+		}
+	};
+	
+	[self requestService:service
+			  parameters:parameters
+			   onSuccess:successHandler
+			   onFailure:failureBlock];
 }
 
 /**
  *  请求OauthApi服务器
  *
- *  @param servies        服务名
+ *  @param service        服务名
  *  @param parameters     参数
  *  @param successHandler 成功回调
- *  @param failureHanler  失败回调
+ *  @param failureHandler  失败回调
  */
-- (void)requestOauthService:(NSString *)servies
-                 parameters:(NSDictionary *)parameters
-                  onSuccess:(SuccessHandler)successHandler
-                  onFailure:(FailureHandler)failureHanler
+- (void)requestOauthService:(NSString *)service
+				 parameters:(NSDictionary *)parameters
+				  onSuccess:(SuccessHandler)successHandler
+				  onFailure:(FailureHandler)failureHandler
 {
-    self.baseUrl  = @"http://120.24.88.40:8888/oauth2/api?";
-    
-    [self requestService:servies
-              parameters:parameters
-               onSuccess:successHandler
-               onFailure:failureHanler];
+	self.baseUrl  = EPOAuthApiBaseUrl;
+	
+	[self requestService:service
+			  parameters:parameters
+			   onSuccess:successHandler
+			   onFailure:failureHandler];
 }
+
 
 @end

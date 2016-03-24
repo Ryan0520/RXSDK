@@ -10,8 +10,8 @@
 #import "RXBaseCompoent.h"
 #import "RXSingleton.h"
 typedef NS_ENUM(NSInteger, RequestMethodType){
-    RequestMethodTypePost = 1,
-    RequestMethodTypeGet = 2
+	RequestMethodTypePost = 1,
+	RequestMethodTypeGet = 2
 };
 
 typedef void(^CompletionHandler)(id jsonData,NSError *error);
@@ -34,12 +34,12 @@ singleton_interface(RXApiServiceEngine)
  *  @param handler 完成的处理
  */
 + (void)requestWithType:(RequestMethodType)type
-                    url:(NSString *)url
-             parameters:(NSDictionary *)parameters
-      completionHanlder:(CompletionHandler)handler;
+					url:(NSString *)url
+			 parameters:(NSDictionary *)parameters
+	  completionHanlder:(CompletionHandler)handler;
 
 /**
- *   发送一个拼接httpbody类型的POST请求,
+ *   发送一个拼接httpbody类型的POST请求
  *
  *  @param servies        服务名
  *  @param parameters     参数
@@ -47,9 +47,9 @@ singleton_interface(RXApiServiceEngine)
  *  @param failureHanler  失败回调
  */
 - (void)requestService:(NSString *)servies
-            parameters:(NSDictionary *)parameters
-             onSuccess:(SuccessHandler)successHandler
-             onFailure:(FailureHandler)failureHanler;
+			parameters:(NSDictionary *)parameters
+			 onSuccess:(SuccessHandler)successHandler
+			 onFailure:(FailureHandler)failureHanler;
 
 /**
  *  初始化
@@ -58,12 +58,13 @@ singleton_interface(RXApiServiceEngine)
  *  @param appId        服务器申请的appID
  *  @param secretKey    请求加密用的key
  *  @param appSecretKey 服务器申请的appSecretKey
+ *  @param log			是否需要输出日志
  */
 - (instancetype)initWithBaseUrl:(NSString *)baseUrl
-                          appId:(NSString *)appId
-                      secretKey:(NSString *)secretKey
-                   appSecretKey:(NSString *)appSecretKey
-                    accessToken:(NSString *)accessToken;
+						  appId:(NSString *)appId
+					  secretKey:(NSString *)secretKey
+				   appSecretKey:(NSString *)appSecretKey
+					accessToken:(NSString *)accessToken;
 
 /**
  *  取消所有任务
