@@ -35,7 +35,9 @@ singleton_implementation(RXApiEngine)
 							appId:EPAppId
 						secretKey:EPApiSecretKey
 					 appSecretKey:EPAppSecretKey
-					  accessToken:accessToken];
+					  accessToken:accessToken
+						 debugLog:YES
+						  timeout:15.0f];
 	
 	return self;
 }

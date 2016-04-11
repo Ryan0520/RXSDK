@@ -23,7 +23,6 @@ NSString *const RXApiServiceErrorDomain = @"Api.Service.ErrorDomain";
 // api error message key
 NSString *const RXApiServiceErrorMessage = @"Api.Service.ErrorMessage";
 
-static NSTimeInterval const timeoutInterval = 25.0f;
 
 @interface RXApiServiceEngine()
 
@@ -39,7 +38,8 @@ static NSTimeInterval const timeoutInterval = 25.0f;
 @property (nonatomic, copy) NSString *appId;
 @property (nonatomic, copy) NSString *appSecretKey;
 @property (nonatomic, copy) NSString *sign;
-
+@property (nonatomic, assign) BOOL debugLog;
+@property (nonatomic, assign) NSTimeInterval timeout;
 @end
 
 @implementation RXApiServiceEngine
@@ -55,6 +55,8 @@ singleton_implementation(RXApiServiceEngine)
 					  secretKey:(NSString *)secretKey
 				   appSecretKey:(NSString *)appSecretKey
 					accessToken:(NSString *)accessToken
+					   debugLog:(BOOL)debugLog
+						timeout:(NSTimeInterval)timeout;
 {
 	self = [super init];
 	if (self)
@@ -71,6 +73,8 @@ singleton_implementation(RXApiServiceEngine)
 		_secretKey = secretKey;
 		_appSecretKey = appSecretKey;
 		_accessToken = accessToken;
+		_debugLog = debugLog;
+		_timeout = timeout;
 	}
 	return self;
 }
@@ -160,51 +164,65 @@ singleton_implementation(RXApiServiceEngine)
 	[self processRequestParmasWithParams:parameters servies:servies];
 	
 	NSURLSessionDataTask *dataTask = [_sessionManager dataTaskWithRequest:_requset completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
-  {
-	  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-	  if (httpResponse == nil) return;
-	  
-	  // 请求成功,有数据回来
-	  if (httpResponse.statusCode == 200) {
-		  RXApiServiceResponse *response = [self decodeResponse:responseObject];
-		  if (response.code == RX_Response_SUCCESS) {
-			  if (successHandler) {
-				  NSLog(@"请求成功的数据 = \n%@",[self dictionaryToJson:response.data]);
-				  successHandler(response.data);
-			  }
-		  }else{
-			  if (response != nil) {
-				  NSDictionary *userInfo = @{RXApiServiceErrorMessage : response.message};
-				  NSError *error = [NSError errorWithDomain:RXApiServiceErrorDomain
-													   code:response.code
-												   userInfo:userInfo];
-				  if (response.code != 201) {
-					  if (!response.message.length)  response.message = @"未知错误";
-					  
-					  [SVProgressHUD showErrorWithStatus:response.message];
-				  }
-				  NSLog(@"%@",error.description);
-				  if (failureHanler) {
-					  failureHanler(error);
-				  }
-			  } else {
-				  [SVProgressHUD showErrorWithStatus:@"后台返回数据错误!!"];
-				  if (failureHanler) {
-					  failureHanler(nil);
-				  }
-			  }
-		  }
-	  }
-	  // 请求失败
-	  if (error) {
-		  NSLog(@"%@",error);
-		  NSString *errorDescription = error.userInfo[@"NSLocalizedDescription"];
-		  [SVProgressHUD showErrorWithStatus:errorDescription];
-		  if (failureHanler) {
-			  failureHanler(error);
-		  }
-	  }
-  }];
+									  {
+										  // 请求失败
+										  if (error) {
+											  if (_debugLog) {
+												  NSLog(@"非服务端返回的错误信息---%@---",error);
+											  }
+											  NSString *errorDescription = error.userInfo[@"NSLocalizedDescription"];
+											  [SVProgressHUD showErrorWithStatus:errorDescription];
+											  if (failureHanler) {
+												  failureHanler(error);
+											  }
+											  return ;
+										  }
+										  
+										  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+										  if (httpResponse == nil) {
+											  if (failureHanler) {
+												  failureHanler(error);
+											  }
+											  return ;
+										  }
+										  
+										  // 请求成功,有服务端返回的数据回来
+										  if (httpResponse.statusCode == 200) {
+											  RXApiServiceResponse *response = [self decodeResponse:responseObject];
+											  if (response.code == RX_Response_SUCCESS) {
+												  [SVProgressHUD dismiss];
+												  if (successHandler) {
+													  if (_debugLog) {
+														  NSLog(@"请求成功的数据 = \n%@",[self dictionaryToJson:response.data]);
+													  }
+													  successHandler(response.data);
+												  }
+											  } else {
+												  if (response != nil) {
+													  NSDictionary *userInfo = @{RXApiServiceErrorMessage : response.message};
+													  NSError *error = [NSError errorWithDomain:RXApiServiceErrorDomain
+																						   code:response.code
+																					   userInfo:userInfo];
+													  if (response.code != 201) {
+														  if (!response.message.length)  response.message = @"未知错误";
+														  
+														  [SVProgressHUD showErrorWithStatus:response.message];
+													  }
+													  if (_debugLog) {
+														  NSLog(@"服务端返回的错误信息---%@---",error.description);
+													  }
+													  if (failureHanler) {
+														  failureHanler(error);
+													  }
+												  } else {
+													  [SVProgressHUD showErrorWithStatus:@"后台返回数据错误!!"];
+													  if (failureHanler) {
+														  failureHanler(nil);
+													  }
+												  }
+											  }
+										  }
+									  }];
 	
 	[dataTask resume];
 	self.dataTask = dataTask;
@@ -218,9 +236,14 @@ singleton_implementation(RXApiServiceEngine)
 	
 	NSURL *baseURL = [NSURL URLWithString:_requestUrl];
 	
+	NSTimeInterval timeInterval = 15.0f;
+	if (_timeout) {
+		timeInterval = _timeout;
+	}
+	
 	_requset = [NSMutableURLRequest requestWithURL:baseURL
 									   cachePolicy:NSURLRequestUseProtocolCachePolicy
-								   timeoutInterval:timeoutInterval];
+								   timeoutInterval:timeInterval];
 	_requset.HTTPMethod = @"POST";
 	
 	RXApiServiceRequest *serviceRequest = [self generateServiceRequestWithServiceName:servies
@@ -235,7 +258,9 @@ singleton_implementation(RXApiServiceEngine)
 	
 	_requestUrl = [_baseUrl stringByAppendingString:appendingString];
 	
-	NSLog(@"\n签名sign = %@ \n请求url = %@",_sign,_requestUrl);
+	if (_debugLog) {
+		NSLog(@"\n签名sign = %@ \n请求url = %@",_sign,_requestUrl);
+	}
 	
 	return _requestUrl;
 }
@@ -254,7 +279,9 @@ singleton_implementation(RXApiServiceEngine)
 	request.params = parameters;
 	if (_accessToken == nil) _accessToken = @"";
 	request.accessToken = _accessToken;
-	NSLog(@"%@",request.description);
+	if (_debugLog) {
+		NSLog(@"%@",request.description);
+	}
 	return request;
 }
 

@@ -64,7 +64,9 @@ singleton_interface(RXApiServiceEngine)
 						  appId:(NSString *)appId
 					  secretKey:(NSString *)secretKey
 				   appSecretKey:(NSString *)appSecretKey
-					accessToken:(NSString *)accessToken;
+					accessToken:(NSString *)accessToken
+					   debugLog:(BOOL)debugLog
+						timeout:(NSTimeInterval)timeout;
 
 /**
  *  取消所有任务
