@@ -8,7 +8,9 @@
 
 #import "RXApiEngine.h"
 
-NSString *const EPOAuthApiBaseUrl = @"http://124.172.184.215:8081/oauth2/api?";
+//NSString *const EPOAuthApiBaseUrl = @"http://124.172.184.215:8081/oauth2/api?";
+
+NSString *const EPOAuthApiBaseUrl = @"http://192.168.172.109:8080/monitor/api?";
 NSString *const EPOpenApiBaseUrl =  @"http://124.172.184.216:8080/open_api/api?";
 
 NSString *const EPApiSecretKey = nil;

@@ -217,4 +217,24 @@
             break;
     }
 }
+
++ (void)getUserInfoWithUserId:(NSString *)userId
+					   source:(NSString *)source
+					  success:(void (^)())successHandler
+					  failure:(FailureHandler)failureHandler
+{
+	NSDictionary *parameter = @{@"source_id" : userId,
+								@"source" : source};
+	
+	void (^onSuccess)(NSDictionary *) = ^(NSDictionary *json)
+	{
+		successHandler();
+//		successHandler([POMUser objectWithKeyValues:CONVERTER(json[@"user"])]);
+	};
+	
+	[[RXApiEngine sharedInstance] requestService:@"user.fetch_by_id"
+									   parameters:parameter
+										onSuccess:onSuccess
+										onFailure:failureHandler];
+}
 @end

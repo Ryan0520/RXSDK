@@ -111,4 +111,10 @@ typedef void(^SuccessCodeBlcok)(NSString *);
                     successHandler:(SuccessCodeBlcok)codeBlock
                     failureHandler:(FailureHandler)failureHandler;
 
+
++ (void)getUserInfoWithUserId:(NSString *)userId
+					   source:(NSString *)source
+					  success:(void (^)())successHandler
+					  failure:(FailureHandler)failureHandler;
+
 @end
