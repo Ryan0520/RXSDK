@@ -165,8 +165,8 @@ singleton_implementation(RXApiServiceEngine)
 	
 	NSURLSessionDataTask *dataTask = [_sessionManager dataTaskWithRequest:_requset completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
 									  {
-										  // 请求失败
-										  if (error) {
+										  // 请求失败,-999是取消请求错误
+										  if (error && error.code != -999) {
 											  if (_debugLog) {
 												  NSLog(@"非服务端返回的错误信息---%@---",error);
 											  }
@@ -190,10 +190,10 @@ singleton_implementation(RXApiServiceEngine)
 										  if (httpResponse.statusCode == 200) {
 											  RXApiServiceResponse *response = [self decodeResponse:responseObject];
 											  if (response.code == RX_Response_SUCCESS) {
-												  [SVProgressHUD dismiss];
 												  if (successHandler) {
 													  if (_debugLog) {
-														  NSLog(@"请求成功的数据 = \n%@",[self dictionaryToJson:response.data]);
+														  NSLog(@"请求成功的数据\n 服务名 = %@ \n 数据内容 = %@ \n",
+																servies,[self dictionaryToJson:response.data]);
 													  }
 													  successHandler(response.data);
 												  }
@@ -203,14 +203,25 @@ singleton_implementation(RXApiServiceEngine)
 													  NSError *error = [NSError errorWithDomain:RXApiServiceErrorDomain
 																						   code:response.code
 																					   userInfo:userInfo];
-													  if (response.code != 201) {
+													  BOOL showErrorHUD = YES;
+													  // 遍历需要忽略的错误码，不提示错误
+													  for (NSNumber *nuber in self.igonreCode) {
+														  if ([nuber integerValue] == error.code) {
+															  showErrorHUD = NO;
+															  break;
+														  }
+													  }
+													  
+													  if (showErrorHUD) {
 														  if (!response.message.length)  response.message = @"未知错误";
 														  
 														  [SVProgressHUD showErrorWithStatus:response.message];
 													  }
+													  
 													  if (_debugLog) {
 														  NSLog(@"服务端返回的错误信息---%@---",error.description);
 													  }
+													  
 													  if (failureHanler) {
 														  failureHanler(error);
 													  }

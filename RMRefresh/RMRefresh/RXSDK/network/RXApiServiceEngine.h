@@ -24,6 +24,8 @@ singleton_interface(RXApiServiceEngine)
 @property (nonatomic, copy) NSString *accessToken;
 
 @property (nonatomic, copy) NSString *baseUrl;
+/** 需要忽略的错误code */
+@property (nonatomic, strong) NSArray<NSNumber *> *igonreCode;
 
 /**
  *  发送一个请求
