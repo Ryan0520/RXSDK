@@ -28,5 +28,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *accessToken;
 /** 请求参数 */
 @property (nonatomic, strong) NSDictionary *params;
+/**
+ *  根据请求返回一个字典
+ *
+ *  @param request 请求
+ *
+ *  @return 字典
+ */
++ (NSDictionary *)dictionaryWithRequset:(RXApiServiceRequest *)request;
 @end
 NS_ASSUME_NONNULL_END
