@@ -18,6 +18,10 @@
 {
 	if (request.params == nil) request.params = @{};
 	
+	if (request.udid == nil) {
+		request.udid = @"";
+	}
+	
 	NSDictionary *dict = @{@"os":request.os,
 						   @"os_version":request.osVersion,
 						   @"app_name":request.appName,

@@ -52,8 +52,6 @@
 		94FCDFFF1CC9C9D900F952A0 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFD11CC9C9D900F952A0 /* OpenUDID.m */; };
 		94FCE0001CC9C9D900F952A0 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFD41CC9C9D900F952A0 /* KeychainItemWrapper.m */; };
 		94FCE0011CC9C9D900F952A0 /* RXCoreLaunchLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFD81CC9C9D900F952A0 /* RXCoreLaunchLite.m */; };
-		94FCE0021CC9C9D900F952A0 /* NirKxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFDB1CC9C9D900F952A0 /* NirKxMenu.m */; };
-		94FCE0031CC9C9D900F952A0 /* RXKxMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFDD1CC9C9D900F952A0 /* RXKxMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,10 +165,6 @@
 		94FCDFD41CC9C9D900F952A0 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
 		94FCDFD71CC9C9D900F952A0 /* RXCoreLaunchLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXCoreLaunchLite.h; sourceTree = "<group>"; };
 		94FCDFD81CC9C9D900F952A0 /* RXCoreLaunchLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXCoreLaunchLite.m; sourceTree = "<group>"; };
-		94FCDFDA1CC9C9D900F952A0 /* NirKxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NirKxMenu.h; sourceTree = "<group>"; };
-		94FCDFDB1CC9C9D900F952A0 /* NirKxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NirKxMenu.m; sourceTree = "<group>"; };
-		94FCDFDC1CC9C9D900F952A0 /* RXKxMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXKxMenu.h; sourceTree = "<group>"; };
-		94FCDFDD1CC9C9D900F952A0 /* RXKxMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXKxMenu.m; sourceTree = "<group>"; };
 		B7D14BD6A815DCEB63CC8CF5 /* libPods-RMRefresh.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RMRefresh.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEEAE4CB905F51B01260091F /* Pods-RMRefresh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMRefresh.release.xcconfig"; path = "Pods/Target Support Files/Pods-RMRefresh/Pods-RMRefresh.release.xcconfig"; sourceTree = "<group>"; };
 		D3DC5FC5204D47A1272A7CEE /* Pods-RMRefresh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RMRefresh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RMRefresh/Pods-RMRefresh.debug.xcconfig"; sourceTree = "<group>"; };
@@ -492,7 +486,6 @@
 			isa = PBXGroup;
 			children = (
 				94FCDFD61CC9C9D900F952A0 /* RXCoreLaunchLite */,
-				94FCDFD91CC9C9D900F952A0 /* RXKxMenu */,
 			);
 			path = widget;
 			sourceTree = "<group>";
@@ -504,17 +497,6 @@
 				94FCDFD81CC9C9D900F952A0 /* RXCoreLaunchLite.m */,
 			);
 			path = RXCoreLaunchLite;
-			sourceTree = "<group>";
-		};
-		94FCDFD91CC9C9D900F952A0 /* RXKxMenu */ = {
-			isa = PBXGroup;
-			children = (
-				94FCDFDA1CC9C9D900F952A0 /* NirKxMenu.h */,
-				94FCDFDB1CC9C9D900F952A0 /* NirKxMenu.m */,
-				94FCDFDC1CC9C9D900F952A0 /* RXKxMenu.h */,
-				94FCDFDD1CC9C9D900F952A0 /* RXKxMenu.m */,
-			);
-			path = RXKxMenu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -722,10 +704,8 @@
 				94FCDFF71CC9C9D900F952A0 /* RXApiServiceRequest.m in Sources */,
 				94FCDFE81CC9C9D900F952A0 /* NSData+SDK_Encrypt.m in Sources */,
 				94FCDFFA1CC9C9D900F952A0 /* RXRuntime.m in Sources */,
-				94FCE0021CC9C9D900F952A0 /* NirKxMenu.m in Sources */,
 				94BBCD4A1C20241B006D6E18 /* EPOAuthManager.m in Sources */,
 				94FCE0001CC9C9D900F952A0 /* KeychainItemWrapper.m in Sources */,
-				94FCE0031CC9C9D900F952A0 /* RXKxMenu.m in Sources */,
 				94FCDFF91CC9C9D900F952A0 /* RXBaseCompoent.m in Sources */,
 				94FCDFF01CC9C9D900F952A0 /* RXExampleHandler.m in Sources */,
 				94FCDFF21CC9C9D900F952A0 /* RXChildAppVC.m in Sources */,
