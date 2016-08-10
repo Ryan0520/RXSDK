@@ -24,6 +24,9 @@ singleton_implementation(RXRuntime)
         _os = [[UIDevice currentDevice] systemName];
         _osVersion = [[UIDevice currentDevice] systemVersion];
         _udid = [OpenUDID value];
+		if (_udid == nil) {
+			_udid = @"";
+		}
     }
     return self;
 }

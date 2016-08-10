@@ -282,7 +282,9 @@ singleton_implementation(RXApiServiceEngine)
 				NSError *error = [NSError errorWithDomain:RXApiServiceErrorDomain
 													 code:response.code
 												 userInfo:userInfo];
-				if (_debugLog)  NSLog(@"=======服务端返回的错误信息=======\n%@",error);
+				if (_debugLog) {
+					NSLog(@"=======服务端返回的错误信息=======\n%@",error)
+				};
 				
 				if (failureHanler) {
 					failureHanler(error);
@@ -297,7 +299,7 @@ singleton_implementation(RXApiServiceEngine)
 		}
 	} failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 		/// 网络响应失败,返回的错误信息
-		NSLog(@"=======非服务端返回的错误信息=======\n错误信息%@ 错误Code%zd",error.localizedDescription,error.code);
+		NSLog(@"=======网络响应失败,返回的错误信息=======\n错误信息%@ 错误Code%zd",error.localizedDescription,error.code);
 		[SVProgressHUD showErrorWithStatus:error.localizedDescription];
 		if (failureHanler) {
 			failureHanler(error);
