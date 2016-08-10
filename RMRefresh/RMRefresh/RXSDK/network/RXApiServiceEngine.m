@@ -283,7 +283,7 @@ singleton_implementation(RXApiServiceEngine)
 													 code:response.code
 												 userInfo:userInfo];
 				if (_debugLog) {
-					NSLog(@"=======服务端返回的错误信息=======\n%@",error)
+					NSLog(@"=======服务端返回的错误信息=======\n%@",error);
 				};
 				
 				if (failureHanler) {
