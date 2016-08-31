@@ -35,7 +35,6 @@
 		94FCDFEB1CC9C9D900F952A0 /* UIBarButtonItem+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDF9D1CC9C9D900F952A0 /* UIBarButtonItem+RXExtension.m */; };
 		94FCDFEC1CC9C9D900F952A0 /* UIColor+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDF9F1CC9C9D900F952A0 /* UIColor+RXExtension.m */; };
 		94FCDFED1CC9C9D900F952A0 /* UIImage+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFA11CC9C9D900F952A0 /* UIImage+RXExtension.m */; };
-		94FCDFEE1CC9C9D900F952A0 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFA31CC9C9D900F952A0 /* UIScrollView+EmptyDataSet.m */; };
 		94FCDFEF1CC9C9D900F952A0 /* UIView+RXExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFA51CC9C9D900F952A0 /* UIView+RXExtension.m */; };
 		94FCDFF01CC9C9D900F952A0 /* RXExampleHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFA91CC9C9D900F952A0 /* RXExampleHandler.m */; };
 		94FCDFF11CC9C9D900F952A0 /* RXUriActionEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFAB1CC9C9D900F952A0 /* RXUriActionEngine.m */; };
@@ -48,7 +47,6 @@
 		94FCDFF81CC9C9D900F952A0 /* RXApiServiceResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFBE1CC9C9D900F952A0 /* RXApiServiceResponse.m */; };
 		94FCDFF91CC9C9D900F952A0 /* RXBaseCompoent.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFC01CC9C9D900F952A0 /* RXBaseCompoent.m */; };
 		94FCDFFA1CC9C9D900F952A0 /* RXRuntime.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFC31CC9C9D900F952A0 /* RXRuntime.m */; };
-		94FCDFFB1CC9C9D900F952A0 /* UINavigationController+FDFullscreenPopGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFC81CC9C9D900F952A0 /* UINavigationController+FDFullscreenPopGesture.m */; };
 		94FCDFFF1CC9C9D900F952A0 /* OpenUDID.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFD11CC9C9D900F952A0 /* OpenUDID.m */; };
 		94FCE0001CC9C9D900F952A0 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFD41CC9C9D900F952A0 /* KeychainItemWrapper.m */; };
 		94FCE0011CC9C9D900F952A0 /* RXCoreLaunchLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 94FCDFD81CC9C9D900F952A0 /* RXCoreLaunchLite.m */; };
@@ -128,8 +126,6 @@
 		94FCDF9F1CC9C9D900F952A0 /* UIColor+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+RXExtension.m"; sourceTree = "<group>"; };
 		94FCDFA01CC9C9D900F952A0 /* UIImage+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RXExtension.h"; sourceTree = "<group>"; };
 		94FCDFA11CC9C9D900F952A0 /* UIImage+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RXExtension.m"; sourceTree = "<group>"; };
-		94FCDFA21CC9C9D900F952A0 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
-		94FCDFA31CC9C9D900F952A0 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
 		94FCDFA41CC9C9D900F952A0 /* UIView+RXExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RXExtension.h"; sourceTree = "<group>"; };
 		94FCDFA51CC9C9D900F952A0 /* UIView+RXExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RXExtension.m"; sourceTree = "<group>"; };
 		94FCDFA81CC9C9D900F952A0 /* RXExampleHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXExampleHandler.h; sourceTree = "<group>"; };
@@ -157,8 +153,6 @@
 		94FCDFC21CC9C9D900F952A0 /* RXRuntime.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXRuntime.h; sourceTree = "<group>"; };
 		94FCDFC31CC9C9D900F952A0 /* RXRuntime.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXRuntime.m; sourceTree = "<group>"; };
 		94FCDFC41CC9C9D900F952A0 /* RXStatusDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXStatusDefine.h; sourceTree = "<group>"; };
-		94FCDFC71CC9C9D900F952A0 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
-		94FCDFC81CC9C9D900F952A0 /* UINavigationController+FDFullscreenPopGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationController+FDFullscreenPopGesture.m"; sourceTree = "<group>"; };
 		94FCDFD01CC9C9D900F952A0 /* OpenUDID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenUDID.h; sourceTree = "<group>"; };
 		94FCDFD11CC9C9D900F952A0 /* OpenUDID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenUDID.m; sourceTree = "<group>"; };
 		94FCDFD31CC9C9D900F952A0 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
@@ -367,8 +361,6 @@
 				94FCDF9F1CC9C9D900F952A0 /* UIColor+RXExtension.m */,
 				94FCDFA01CC9C9D900F952A0 /* UIImage+RXExtension.h */,
 				94FCDFA11CC9C9D900F952A0 /* UIImage+RXExtension.m */,
-				94FCDFA21CC9C9D900F952A0 /* UIScrollView+EmptyDataSet.h */,
-				94FCDFA31CC9C9D900F952A0 /* UIScrollView+EmptyDataSet.m */,
 				94FCDFA41CC9C9D900F952A0 /* UIView+RXExtension.h */,
 				94FCDFA51CC9C9D900F952A0 /* UIView+RXExtension.m */,
 			);
@@ -448,20 +440,10 @@
 		94FCDFC51CC9C9D900F952A0 /* utility */ = {
 			isa = PBXGroup;
 			children = (
-				94FCDFC61CC9C9D900F952A0 /* FDFullscreenPopGesture */,
 				94FCDFCF1CC9C9D900F952A0 /* OpenUDID */,
 				94FCDFD21CC9C9D900F952A0 /* security */,
 			);
 			path = utility;
-			sourceTree = "<group>";
-		};
-		94FCDFC61CC9C9D900F952A0 /* FDFullscreenPopGesture */ = {
-			isa = PBXGroup;
-			children = (
-				94FCDFC71CC9C9D900F952A0 /* UINavigationController+FDFullscreenPopGesture.h */,
-				94FCDFC81CC9C9D900F952A0 /* UINavigationController+FDFullscreenPopGesture.m */,
-			);
-			path = FDFullscreenPopGesture;
 			sourceTree = "<group>";
 		};
 		94FCDFCF1CC9C9D900F952A0 /* OpenUDID */ = {
@@ -564,7 +546,7 @@
 		948980961BC3E331007CFEAF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = RyanShen;
 				TargetAttributes = {
 					9489809D1BC3E331007CFEAF = {
@@ -681,8 +663,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94FCDFFB1CC9C9D900F952A0 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
-				94FCDFEE1CC9C9D900F952A0 /* UIScrollView+EmptyDataSet.m in Sources */,
 				94FCDFF31CC9C9D900F952A0 /* RXJsBridge.m in Sources */,
 				94FCDFE51CC9C9D900F952A0 /* RXHyTransitions.m in Sources */,
 				94FCDFED1CC9C9D900F952A0 /* UIImage+RXExtension.m in Sources */,
@@ -785,8 +765,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -828,8 +810,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
