@@ -155,90 +155,6 @@ singleton_implementation(RXApiServiceEngine)
 	}
 }
 
-//#pragma mark - 请求的方法
-//- (void)requestService:(NSString *)servies
-//			parameters:(NSDictionary *)parameters
-//			 onSuccess:(SuccessHandler)successHandler
-//			 onFailure:(FailureHandler)failureHanler
-//{
-//	[self processRequestParmasWithParams:parameters servies:servies];
-//	
-//	NSURLSessionDataTask *dataTask = [_sessionManager dataTaskWithRequest:_requset completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error)
-//									  {
-//										  // 请求失败,-999是取消请求错误
-//										  if (error && error.code != -999) {
-//											  if (_debugLog) {
-//												  NSLog(@"非服务端返回的错误信息---%@---",error);
-//											  }
-//											  NSString *errorDescription = error.userInfo[@"NSLocalizedDescription"];
-//											  [SVProgressHUD showErrorWithStatus:errorDescription];
-//											  if (failureHanler) {
-//												  failureHanler(error);
-//											  }
-//											  return ;
-//										  }
-//										  
-//										  NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
-//										  if (httpResponse == nil) {
-//											  if (failureHanler) {
-//												  failureHanler(error);
-//											  }
-//											  return ;
-//										  }
-//										  
-//										  // 请求成功,有服务端返回的数据回来
-//										  if (httpResponse.statusCode == 200) {
-//											  RXApiServiceResponse *response = [self decodeResponse:responseObject];
-//											  if (response.code == RX_Response_SUCCESS) {
-//												  if (successHandler) {
-//													  if (_debugLog) {
-//														  NSLog(@"请求成功的数据\n 服务名 = %@ \n 数据内容 = %@ \n",
-//																servies,[self dictionaryToJson:response.data]);
-//													  }
-//													  successHandler(response.data);
-//												  }
-//											  } else {
-//												  if (response != nil) {
-//													  NSDictionary *userInfo = @{RXApiServiceErrorMessage : response.message};
-//													  NSError *error = [NSError errorWithDomain:RXApiServiceErrorDomain
-//																						   code:response.code
-//																					   userInfo:userInfo];
-//													  BOOL showErrorHUD = YES;
-//													  // 遍历需要忽略的错误码，不提示错误
-//													  for (NSNumber *nuber in self.igonreCode) {
-//														  if ([nuber integerValue] == error.code) {
-//															  showErrorHUD = NO;
-//															  break;
-//														  }
-//													  }
-//													  
-//													  if (showErrorHUD) {
-//														  if (!response.message.length)  response.message = @"未知错误";
-//														  
-//														  [SVProgressHUD showErrorWithStatus:response.message];
-//													  }
-//													  
-//													  if (_debugLog) {
-//														  NSLog(@"服务端返回的错误信息---%@---",error.description);
-//													  }
-//													  
-//													  if (failureHanler) {
-//														  failureHanler(error);
-//													  }
-//												  } else {
-//													  [SVProgressHUD showErrorWithStatus:@"后台返回数据错误!!"];
-//													  if (failureHanler) {
-//														  failureHanler(nil);
-//													  }
-//												  }
-//											  }
-//										  }
-//									  }];
-//	
-//	[dataTask resume];
-//	self.dataTask = dataTask;
-//}
-
 #pragma mark - 请求的方法
 - (void)requestService:(NSString *)servies
 			parameters:(NSDictionary *)parameters
@@ -251,6 +167,10 @@ singleton_implementation(RXApiServiceEngine)
 																		   parameters:parameters];
 	
 	NSDictionary *params = [RXApiServiceRequest dictionaryWithRequset:serviceRequest];
+	
+	if (_debugLog) {
+		NSLog(@"%@",serviceRequest.description);
+	}
 	
 	AFHTTPSessionManager *sessionManager = [AFHTTPSessionManager manager];
 	sessionManager.requestSerializer	 = [AFJSONRequestSerializer serializer];
@@ -359,9 +279,6 @@ singleton_implementation(RXApiServiceEngine)
 	request.params = parameters;
 	if (_accessToken == nil) _accessToken = @"";
 	request.accessToken = _accessToken;
-	if (_debugLog) {
-		NSLog(@"%@",request.description);
-	}
 	return request;
 }
 

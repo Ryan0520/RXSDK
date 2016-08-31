@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "RXSDK"
-  s.version      = "1.2.2"
+  s.version      = "1.2.4"
   s.summary      = "CoderRyan’s SDK"
   s.homepage     = "https://github.com/Ryan0520/RMRefresh"
   s.license      = "MIT"
